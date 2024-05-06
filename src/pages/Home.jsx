@@ -12,6 +12,10 @@ import volunteersbg from '../assets/images/volunteers-bg.jpg'
 import { FaThumbsUp, FaHeart } from "react-icons/fa";
 import { FaFileInvoiceDollar } from "react-icons/fa";
 import { IoPerson } from "react-icons/io5";
+import Services from './Services';
+import Donations from './Donations';
+import Causes from './Causes';
+import Events from './Events';
 export default function Home() {
   const scrollToTop = () => {
     window.scrollTo({
@@ -66,106 +70,12 @@ const [buttonContent, setButtonContent] = useState({
 
 {/* services begins */}
 
-<div className='bg-hover px-3 py-12'>
-  <div className='px-3 py-12'>  
-  <div className='container '> 
-  <div className='mx-auto text-center'> 
-  <p className=' text-primary text-xl font-Jost font-semibold mb-2'>WHAT WE DO</p>
-  <p className=' text-[30px] md:text-[40px] font-Jost font-semibold '>What we do to protect environment</p>
-  </div>
-  
-  
- <div className='flex flex-wrap justify-center mt-6 mx-3'>
-
-  <div className='relative flex flex-col px-3 mt-6 '>
-    <img src={service1} className='  w-[306px] h-[367px]  brightness-75 hover:brightness-50 transition duration-300'/>
-    <p className='group absolute bottom-36 mx-auto text-2xl font-Jost font-semibold  text-white p-2 hover:text-primary cursor cursor-pointer'>Raising money to help</p>
-    <p className='w-[306px] h-[96px] my-6 text-[#757575] text-base '>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-  </div>
-
-  <div className='relative flex flex-col px-3 mt-6'>
-    <img src={service2} className='w-[306px] h-[367px] brightness-75 hover:brightness-50 transition duration-300'/>
-    <p className='absolute bottom-36 mx-auto text-2xl font-Jost font-semibold text-white p-2 hover:text-primary cursor-pointer'>Close work with services</p>
-    <p className='w-[306px] h-[96px] my-6 text-[#757575] text-base '>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-  </div>
-
-  <div className='relative flex flex-col px-3 mt-6'>
-    <img src={service3} className='w-[306px] h-[367px] brightness-75 hover:brightness-50 transition duration-300'/>
-    <p className='absolute bottom-36 mx-auto text-2xl font-Jost font-semibold text-white p-2 hover:text-primary cursor-pointer'>Pro Guided tours only</p>
-    <p className='w-[306px] h-[96px] my-6 text-[#757575] text-base '>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-  </div>
-  
-  <div className='relative flex flex-col px-3 mt-6'>
-    <img src={service4} className='w-[306px] h-[367px] brightness-75 hover:brightness-50 transition duration-300'/>
-    <p className='absolute bottom-36 mx-auto text-2xl font-Jost font-semibold text-white p-2 hover:text-primary cursor-pointer'>Protecting animal area</p>
-    <p className='w-[306px] h-[96px] my-6 text-[#757575] text-base '>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-  </div>
-
-<button onClick={scrollToTop} className='btn mt-4'>Read More</button>
-
-  </div>
-     
-  </div>
-  </div>
-</div>
+<Services/>
 {/* services ends */}
 
 
 {/* donation begins */}
-<div className='py-12 px-3'>
-  <div className='py-12 px-3' >
-<div className='container '>
-<div className='pb-5 mx-auto text-center'> 
-<p className='font-Jost text-xl text-primary  font-semibold mb-2'>DONATION</p>
-<p className='font-Jost text-[30px] md:text-[40px]  font-semibold'>Your money will save our life</p>
-</div>
-
-<div className='my-6 mx-3 flex flex-wrap justify-center gap-6'>
-  <div className=' group h-full w-auto md:h-[500px] md:w-[415px] relative '> 
-    <div className='realtive'> 
-     <img src={donation1} alt="" className='brightness-75 group-hover:brightness-50 transition-all duration-300'/>    
-     </div>
-     <div className='text-white absolute bottom-0 left-0 p-5 transition-transform duration-300 ease-in-out transform translate-y-0 group-hover:-translate-y-3'> 
-     <p className='text-primary text-xl font-Jost mb-6 font-semibold'>ORGANIC</p>
-     <h1 className='text-[32px] md:text-[40px] font-Roboto font-semibold'>Help Us More</h1>
-     <p className='font-Jost text-2xl mb-6'>Protect Environments</p>
-     <p className='text-base font-Roboto mb-6'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
-    <button onClick={scrollToTop} className='btn hidden group-hover:block transition-transform  duration-300 ease-in-out translate-y-0 group-hover:-translate-y-3'>Donate!</button>
-     </div>
-  </div>
-  <div className=' group h-full w-auto md:h-[500px] md:w-[415px]  relative '> 
-    <div className='realtive'> 
-     <img src={service2} alt="" className='brightness-75 group-hover:brightness-50 transition-all duration-300'/>    
-     </div>
-     <div className='text-white absolute bottom-0 left-0 p-5 transition-transform duration-300 ease-in-out transform translate-y-0 group-hover:-translate-y-3'> 
-     <p className='text-primary text-xl font-Jost mb-6 font-semibold'>ECOSYSTEM</p>
-     <h1 className='text-[32px] md:text-[40px] font-Roboto font-semibold'>Help Us More</h1>
-     <p className='font-Jost text-2xl mb-6'>Protect Environments</p>
-     <p className='text-base font-Roboto mb-6'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
-    <button onClick={scrollToTop} className='btn hidden group-hover:block transition-transform  duration-300 ease-in-out translate-y-0 group-hover:-translate-y-3'>Donate!</button>
-     </div>
-  </div>
-  <div className=' group h-full w-auto md:h-[500px] md:w-[415px] relative '> 
-    <div className='realtive'> 
-     <img src={donation3} alt="" className='brightness-75 group-hover:brightness-50 transition-all duration-300'/>    
-     </div>
-     <div className='text-white absolute bottom-0 left-0 p-5 transition-transform duration-300 ease-in-out transform translate-y-0 group-hover:-translate-y-3'> 
-     <p className='text-primary text-xl font-Jost mb-6 font-semibold'>RECYCLING</p>
-     <h1 className='text-[32px] md:text-[40px] font-Roboto font-semibold'>Help Us More</h1>
-     <p className='font-Jost text-2xl mb-6'>Protect Environments</p>
-     <p className='text-base font-Roboto mb-6'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
-    <button onClick={scrollToTop} className='btn hidden group-hover:block transition-transform  duration-300 ease-in-out translate-y-0 group-hover:-translate-y-3'>Donate!</button>
-     </div>
-  </div>
-
-
-</div>
-<div className='mx-auto text-center'> 
-<button onClick={scrollToTop} className='btn'>All Donation</button>
-</div>
-</div>
-</div>
-</div>
+<Donations/>
 {/* donation ends */}
 
 {/* achievments begins */}
@@ -213,7 +123,7 @@ const [buttonContent, setButtonContent] = useState({
     
 </div>
 <div className='mx-auto text-center'> 
-<button className='btn' >Join With Us</button>
+<button onClick={scrollToTop} className='btn' >Join With Us</button>
 </div>
 </div>
 </div>
@@ -222,7 +132,11 @@ const [buttonContent, setButtonContent] = useState({
 
 {/* achievements ends */}
 
-
-
+{/* causes starts */}
+<Causes/>
+{/* causes ends */}
+{/* evnets */}
+<Events/>
+{/* events end */}
   </>
 }
