@@ -16,6 +16,7 @@ import Services from './Services';
 import Donations from './Donations';
 import Causes from './Causes';
 import Events from './Events';
+import Blog from './Blog';
 export default function Home() {
   const scrollToTop = () => {
     window.scrollTo({
@@ -138,5 +139,8 @@ const [buttonContent, setButtonContent] = useState({
 {/* evnets */}
 <Events/>
 {/* events end */}
+{/* Blog start */}
+<Blog/>
+{/* BLog ends */}
   </>
 }

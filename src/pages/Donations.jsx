@@ -9,6 +9,20 @@ export default function Donations() {
         behavior: "smooth" // Scroll smoothly to top
     });
 };
+const data =[
+  {
+    image: donation1,
+    p:"ORGANIC"
+  },
+  {
+    image: service2,
+    p:"ECOSYSTEM"
+  },
+  {
+    image: donation3,
+    p:"RECYCLING"
+  },
+]
   return <>
   <div className='py-12 px-3'>
   <div className='py-12 px-3' >
@@ -19,42 +33,25 @@ export default function Donations() {
 </div>
 
 <div className='my-6 mx-3 flex flex-wrap justify-center gap-6'>
-  <div className=' group h-full w-auto md:h-[500px] md:w-[415px] relative '> 
+  {
+    data.map(el=>(
+
+<div className=' group h-full w-auto md:h-[500px] md:w-[415px] relative '> 
     <div className='realtive'> 
-     <img src={donation1} alt="" className='brightness-75 group-hover:brightness-50 transition-all duration-300'/>    
+     <img src={el.image} alt="" className='brightness-75 group-hover:brightness-50 transition-all duration-300'/>    
      </div>
      <div className='text-white absolute bottom-0 left-0 p-5 transition-transform duration-300 ease-in-out transform translate-y-0 group-hover:-translate-y-3'> 
-     <p className='text-primary text-xl font-Jost mb-6 font-semibold'>ORGANIC</p>
+     <p className='text-primary text-xl font-Jost mb-6 font-semibold'>{el.p}</p>
      <h1 className='text-[32px] md:text-[40px] font-Roboto font-semibold'>Help Us More</h1>
      <p className='font-Jost text-2xl mb-6'>Protect Environments</p>
      <p className='text-base font-Roboto mb-6'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
     <button onClick={scrollToTop} className='btn hidden group-hover:block transition-transform  duration-300 ease-in-out translate-y-0 group-hover:-translate-y-3'>Donate!</button>
      </div>
   </div>
-  <div className=' group h-full w-auto md:h-[500px] md:w-[415px]  relative '> 
-    <div className='realtive'> 
-     <img src={service2} alt="" className='brightness-75 group-hover:brightness-50 transition-all duration-300'/>    
-     </div>
-     <div className='text-white absolute bottom-0 left-0 p-5 transition-transform duration-300 ease-in-out transform translate-y-0 group-hover:-translate-y-3'> 
-     <p className='text-primary text-xl font-Jost mb-6 font-semibold'>ECOSYSTEM</p>
-     <h1 className='text-[32px] md:text-[40px] font-Roboto font-semibold'>Help Us More</h1>
-     <p className='font-Jost text-2xl mb-6'>Protect Environments</p>
-     <p className='text-base font-Roboto mb-6'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
-    <button onClick={scrollToTop} className='btn hidden group-hover:block transition-transform  duration-300 ease-in-out translate-y-0 group-hover:-translate-y-3'>Donate!</button>
-     </div>
-  </div>
-  <div className=' group h-full w-auto md:h-[500px] md:w-[415px] relative '> 
-    <div className='realtive'> 
-     <img src={donation3} alt="" className='brightness-75 group-hover:brightness-50 transition-all duration-300'/>    
-     </div>
-     <div className='text-white absolute bottom-0 left-0 p-5 transition-transform duration-300 ease-in-out transform translate-y-0 group-hover:-translate-y-3'> 
-     <p className='text-primary text-xl font-Jost mb-6 font-semibold'>RECYCLING</p>
-     <h1 className='text-[32px] md:text-[40px] font-Roboto font-semibold'>Help Us More</h1>
-     <p className='font-Jost text-2xl mb-6'>Protect Environments</p>
-     <p className='text-base font-Roboto mb-6'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
-    <button onClick={scrollToTop} className='btn hidden group-hover:block transition-transform  duration-300 ease-in-out translate-y-0 group-hover:-translate-y-3'>Donate!</button>
-     </div>
-  </div>
+    ))
+  }
+  
+  
 
 
 </div>

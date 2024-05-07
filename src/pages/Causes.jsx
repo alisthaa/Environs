@@ -12,7 +12,24 @@ export default function Causes() {
         behavior: "smooth" // Scroll smoothly to top
     });
 };
-
+const data=[
+  {
+    image: cause4,
+    p: "First environments activity of"
+  },
+  {
+    image: cause2,
+    p: "Build school for poor children."
+  },
+  {
+    image: cause3,
+    p: "Building clean-water system for rural poor."
+  },
+  {
+    image: cause1,
+    p: "First environments activity of this summer."
+  },
+]
   return <>
   <div className='py-12 px-3'>
 <div className=' py-12 px-3 container'>
@@ -23,79 +40,31 @@ export default function Causes() {
   </div>
   <div className='my-6 mx-3 pt-6 flex flex-wrap justify-center gap-6'>
 
+{
+  data.map(el=>(
+<div className='w-[306px] '>
 
-     <div className='w-[306px] '>
+<div className='relative bg-[#757575]'>
+  <img src={el.image} className='h-full transform transition duration-500 hover:scale-x-[-1] hover:brightness-50' />
+   <div className='absolute top-0 right-0 p-2'>
+    <button className='btn'>Donate Now</button>
+   </div>
+  <p className='absolute bottom-0 left-0 p-2 flex items-center font-Roboto text-sm gap-2 font-semibold text-white'><VscGraph className='text-primary'/> Goal: $3600</p>
+  <p className='absolute bottom-0 right-0 p-2 flex items-center font-Roboto text-sm gap-2 font-semibold text-white'> <FaThumbsUp className='text-primary' /> Raised: $4000</p>
+</div>
+<div className='h-[10px] bg-[#e9ecef] '></div>
+<div className='bg-secondary  p-6'>
+  <p className='text-2xl font-Jost mb-4 font-semibold'>{el.p}</p>
+  <p className='text-base font-Roboto mb-6 text-[#757575]'>Help today because tomorrow you may be the one who needs more helping!</p>
+  <button onClick={scrollToTop} className='btn'>Read More</button>
+</div>
 
-        <div className='relative bg-[#757575]'>
-          <img src={cause4} className='h-full transform transition duration-500 hover:scale-x-[-1] hover:brightness-50' />
-           <div className='absolute top-0 right-0 p-2'>
-            <button className='btn'>Donate Now</button>
-           </div>
-          <p className='absolute bottom-0 left-0 p-2 flex items-center font-Roboto text-sm gap-2 font-semibold text-white'><VscGraph className='text-primary'/> Goal: $3600</p>
-          <p className='absolute bottom-0 right-0 p-2 flex items-center font-Roboto text-sm gap-2 font-semibold text-white'> <FaThumbsUp className='text-primary' /> Raised: $4000</p>
-        </div>
-        <div className='h-[10px] bg-[#e9ecef] '></div>
-       <div className='bg-secondary  p-6'>
-          <p className='text-2xl font-Jost mb-4 font-semibold'>First environments activity of</p>
-          <p className='text-base font-Roboto mb-6 text-[#757575]'>Help today because tomorrow you may be the one who needs more helping!</p>
-          <button onClick={scrollToTop} className='btn'>Read More</button>
-       </div>
+</div>
+  ))
+}
+     
 
-    </div>
-     <div className='w-[306px] '>
-
-        <div className='relative bg-[#757575]'>
-          <img src={cause2} className='h-full transform transition duration-500 hover:scale-x-[-1] hover:brightness-50' />
-           <div className='absolute top-0 right-0 p-2'>
-            <button className='btn'>Donate Now</button>
-           </div>
-          <p className='absolute bottom-0 left-0 p-2 flex items-center font-Roboto text-sm gap-2 font-semibold text-white'><VscGraph className='text-primary'/> Goal: $3600</p>
-          <p className='absolute bottom-0 right-0 p-2 flex items-center font-Roboto text-sm gap-2 font-semibold text-white'> <FaThumbsUp className='text-primary' /> Raised: $4000</p>
-        </div>
-        <div className='h-[10px] bg-[#e9ecef] '></div>
-       <div className='bg-secondary  p-6'>
-          <p className='text-2xl font-Jost mb-4 font-semibold'>Build school for poor children.</p>
-          <p className='text-base font-Roboto mb-6 text-[#757575]'>Help today because tomorrow you may be the one who needs more helping!</p>
-          <button onClick={scrollToTop} className='btn'>Read More</button>
-       </div>
-
-    </div>
-     <div className='w-[306px] '>
-
-        <div className='relative bg-[#757575]'>
-          <img src={cause3} className='h-full transform transition duration-500 hover:scale-x-[-1] hover:brightness-50' />
-           <div className='absolute top-0 right-0 p-2'>
-            <button className='btn'>Donate Now</button>
-           </div>
-          <p className='absolute bottom-0 left-0 p-2 flex items-center font-Roboto text-sm gap-2 font-semibold text-white'><VscGraph className='text-primary'/> Goal: $3600</p>
-          <p className='absolute bottom-0 right-0 p-2 flex items-center font-Roboto text-sm gap-2 font-semibold text-white'> <FaThumbsUp className='text-primary' /> Raised: $4000</p>
-        </div>
-        <div className='h-[10px] bg-[#e9ecef] '></div>
-       <div className='bg-secondary  p-6'>
-          <p className='text-2xl font-Jost mb-4 font-semibold'>Building clean-water system for rural poor.</p>
-          <p className='text-base font-Roboto mb-6 text-[#757575]'>Help today because tomorrow you may be the one who needs more helping!</p>
-          <button onClick={scrollToTop} className='btn'>Read More</button>
-       </div>
-
-    </div>
-     <div className='w-[306px] '>
-
-        <div className='relative bg-[#757575]'>
-          <img src={cause1} className='h-full transform transition duration-500 hover:scale-x-[-1] hover:brightness-50' />
-           <div className='absolute top-0 right-0 p-2'>
-            <button className='btn'>Donate Now</button>
-           </div>
-          <p className='absolute bottom-0 left-0 p-2 flex items-center font-Roboto text-sm gap-2 font-semibold text-white'><VscGraph className='text-primary'/> Goal: $3600</p>
-          <p className='absolute bottom-0 right-0 p-2 flex items-center font-Roboto text-sm gap-2 font-semibold text-white'> <FaThumbsUp className='text-primary' /> Raised: $4000</p>
-        </div>
-        <div className='h-[10px] bg-[#e9ecef] '></div>
-       <div className='bg-secondary  p-6 '>
-          <p className='text-2xl font-Jost mb-4 font-semibold'>First environments activity of this summer.</p>
-          <p className='text-base font-Roboto mb-6 text-[#757575]'>Help today because tomorrow you may be the one who needs more helping!</p>
-          <button onClick={scrollToTop} className='btn'>Read More</button>
-       </div>
-
-    </div>
+     
 
 
   </div>

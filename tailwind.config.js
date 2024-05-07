@@ -9,7 +9,8 @@ export default {
       colors:{
         "primary":"#f8b864",
         "hover":"#f2f2f2",
-        "secondary":"#f3e0c6"
+        "secondary":"#f3e0c6",
+        "grey":"#757575"
       },
 fontFamily:{
   'Roboto': ["Roboto", 'sans-serif'],
