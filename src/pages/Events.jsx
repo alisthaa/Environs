@@ -114,7 +114,7 @@ nextArrow={<></>}>
       </div>
       <p className='font-Jost text-[24px] mb-6 font-semibold'>How To Build A Cleaning Plan</p>
       <p className='font-Roboto mb-6 text-grey text-base'>Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor.</p>
-      <button className='btn'>Read More</button>
+      <button onClick={scrollToTop} className='btn'>Read More</button>
     </div>
    </div>
 
