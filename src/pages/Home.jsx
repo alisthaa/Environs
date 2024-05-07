@@ -12,6 +12,7 @@ import Events from './Events';
 import Blog from './Blog';
 import About from './About';
 import Gallery from './Gallery'
+import Volunteers from './Volunteers';
 export default function Home() {
   const scrollToTop = () => {
     window.scrollTo({
@@ -89,5 +90,7 @@ export default function Home() {
 <Blog/>
 
 <Gallery/>
+
+<Volunteers/>
   </>
 }
