@@ -12,10 +12,13 @@ import Donations from './pages/Donations'
 import Gallery from './pages/Gallery'
 import Volunteers from './pages/Volunteers'
 import Error from './pages/Error'
+import Footer from './components/common/Footer'
+import ScrollToTop from './components/common/ScrollToTop'
 
 export default function App() {
   return <>
   <Header/>
+  <ScrollToTop/>
   <Routes>
     <Route path='/' element={<Home/>} />
     <Route path='about' element={<About/>}/>
@@ -29,5 +32,6 @@ export default function App() {
     <Route path='gallery' element={<Gallery/>}/>
     <Route path='volunteers' element={<Volunteers/>}/>
   </Routes>
+  <Footer/>
   </>
 }
