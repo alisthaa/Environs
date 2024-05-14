@@ -5,6 +5,7 @@ import cause3 from '../assets/images/causes-3.jpg'
 import cause4 from '../assets/images/causes-4.jpg'
 import { VscGraph } from "react-icons/vsc";
 import { FaThumbsUp } from 'react-icons/fa'
+import BreadCrumb from '../components/common/BreadCrumb'
 export default function Causes() {
   const scrollToTop = () => {
     window.scrollTo({
@@ -31,6 +32,7 @@ const data=[
   },
 ]
   return <>
+  <BreadCrumb topic={'Recent Causes'} page={'Causes'}/>
   <div className='py-12 px-3'>
 <div className=' py-12 px-3 container'>
   <div className='mx-auto text-center md:w-[800px] '>
@@ -47,13 +49,13 @@ const data=[
 <div className='relative bg-[#757575]'>
   <img src={el.image} className='h-full transform transition duration-500 hover:scale-x-[-1] hover:brightness-50' />
    <div className='absolute top-0 right-0 p-2'>
-    <button className='btn'>Donate Now</button>
+    <button onClick={scrollToTop} className='btn'>Donate Now</button>
    </div>
   <p className='absolute bottom-0 left-0 p-2 flex items-center font-Roboto text-sm gap-2 font-semibold text-white'><VscGraph className='text-primary'/> Goal: $3600</p>
   <p className='absolute bottom-0 right-0 p-2 flex items-center font-Roboto text-sm gap-2 font-semibold text-white'> <FaThumbsUp className='text-primary' /> Raised: $4000</p>
 </div>
 <div className='h-[10px] bg-[#e9ecef] '></div>
-<div className='bg-secondary  p-6'>
+<div className='bg-secondary  p-6 border-b-[3px] border-x-[3px] border-white border-dotted'>
   <p className='text-2xl font-Jost mb-4 font-semibold'>{el.p}</p>
   <p className='text-base font-Roboto mb-6 text-[#757575]'>Help today because tomorrow you may be the one who needs more helping!</p>
   <button onClick={scrollToTop} className='btn'>Read More</button>

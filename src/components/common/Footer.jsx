@@ -11,6 +11,9 @@ import { ImCross } from "react-icons/im";
 import { MdOutlineZoomIn } from "react-icons/md";
 import { FaFacebook, FaInstagram, FaLinkedin, FaPinterest, FaTwitter } from 'react-icons/fa6';
 export default function Footer() {
+    const handleSubmit = (e) => {
+        e.preventDefault(); 
+    };
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
@@ -50,7 +53,7 @@ export default function Footer() {
 
   return <>
   
-  <div className='px-3 py-12 bg-[#222222] '>
+  <div className='px-3 py-12 bg-[#222222]  border-t-[3px] border-white border-dotted'>
   
 <div className='container  flex justify-center text-white'>
     <div className='mt-12 w-[336px] h-[272px] px-6' >
@@ -61,7 +64,7 @@ export default function Footer() {
             <p className='my-2'>amet, consectetur adipiscing elit</p>
             <p className='my-2'>consectetur adipiscing elit.</p>
         </div>
-    <form className='relative'>
+    <form className='relative'onSubmit={handleSubmit}>
         
         <input type="text" placeholder="Enter your email" className='py-4 px-6 w-full bg-secondary' />
         <button className='px-4 py-2 text-base border border-primary text-black bg-primary font-Roboto font-semibold hover:text-primary hover:bg-secondary transition duration-[0.5s] absolute right-0 m-2'>SignUp</button>

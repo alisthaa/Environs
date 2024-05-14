@@ -5,6 +5,8 @@ import volunteer3 from '../assets/images/volunteers-3.jpg'
 import volunteer4 from '../assets/images/volunteers-4.jpg'
 import { TiTick } from "react-icons/ti";
 import { FaCheck } from 'react-icons/fa6'
+import BreadCrumb from '../components/common/BreadCrumb'
+
 export default function Volunteers() {
   const scrollToTop = () => {
     window.scrollTo({
@@ -27,6 +29,7 @@ export default function Volunteers() {
     },
   ]
   return <>
+   <BreadCrumb topic={'Our Volunteers'} page={'Volunteers'}/>
   <div className='mt-12'>
 <div className='py-12 px-3 bg-[#fff8ef]'>
 <div className='pb-8'> 
@@ -37,8 +40,8 @@ export default function Volunteers() {
 {
   data.map(el=>(
 
-<div className='relative w-full'>
-  <img src={el.image} alt="" className='relative w-full h-full brightness-90 hover:brightness-50 transition-all duration-300' />
+<div className='relative w-full group overflow-hidden'>
+  <img src={el.image} alt="" className=' w-full h-full brightness-90  transition-all duration-500 transform group-hover:scale-125 group-hover:brightness-50' />
   <div className='absolute bottom-0 text-white text-center p-5 left-14'>
   <p className='text-[20px] font-Jost mb-2 font-semibold'>Michel Brown</p>
   <p className='font-Roboto'>Communicator</p>

@@ -28,7 +28,7 @@ export default function App() {
     <Route path='contact' element={<Contact/>}/>
     <Route path='blog' element={<Blog/>}/>
     <Route path='donation' element={<Donations/>}/>
-    <Route path='404error' element={<Error/>}/>
+    <Route path='404' element={<Error/>}/>
     <Route path='gallery' element={<Gallery/>}/>
     <Route path='volunteers' element={<Volunteers/>}/>
   </Routes>

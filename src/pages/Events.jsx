@@ -8,6 +8,7 @@ import { FaLocationDot } from 'react-icons/fa6'
 import { SlCalender } from "react-icons/sl";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import BreadCrumb from '../components/common/BreadCrumb'
 
 export default function Events() {
   const scrollToTop = () => {
@@ -80,6 +81,7 @@ var settings = {
   ]
 };
   return <>
+   <BreadCrumb topic={'Upcoming Events'} page={'Events'}/>
   <div className='py-12 px-3'>
 <div className=' py-12 px-3 container'>
 <div>
@@ -107,7 +109,7 @@ nextArrow={<></>}>
   <div className=' h-[332px]'>  
     <img src={el.image} alt="" className='' />
     </div>
-    <div className='bg-secondary p-6'>
+    <div className='bg-secondary p-6 border-b-[3px] border-x-[3px] border-white border-dotted'>
       <div className='flex justify-between mb-6 text-grey font-Roboto text-base'> 
       <p className='flex justify-center items-center gap-2'><FaLocationDot />Grand Mahal, Dubai 2100</p>
       <p className='flex justify-center items-center gap-2'><SlCalender />10 Feb 2023</p>

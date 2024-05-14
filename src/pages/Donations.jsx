@@ -2,6 +2,8 @@ import React from 'react'
 import service2 from '../assets/images/service-2.jpg'
 import donation1 from '../assets/images/donation-1.jpg'
 import donation3 from '../assets/images/donation-3.jpg'
+import BreadCrumb from '../components/common/BreadCrumb'
+
 export default function Donations() {
   const scrollToTop = () => {
     window.scrollTo({
@@ -24,6 +26,7 @@ const data =[
   },
 ]
   return <>
+   <BreadCrumb topic={'Donation'} page={'Donation'}/>
   <div className='py-12 px-3'>
   <div className='py-12 px-3' >
 <div className='container '>

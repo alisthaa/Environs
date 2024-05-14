@@ -30,7 +30,7 @@ export default function Header() {
 
 
   return <>
-<div className='flex justify-center '> 
+<div className='flex justify-center'> 
 
   <nav className={`${isFullWidth ? 'transition-width duration-500 ease-in-out lg:w-full md:w-full w-full fixed top-0 z-50 m-auto md:m-auto md:fixed md:top-0 lg:m-auto lg:fixed lg:top-0  lg:z-50  md:z-50' : 'fixed top-0  z-50 m-auto md:m-auto md:max-w-[1291px] md:fixed md:top-0   md:z-50 lg:max-w-[1320px] lg:m-auto lg:fixed lg:top-0  lg:z-50'}  `}>
 
@@ -39,7 +39,7 @@ export default function Header() {
         <p className='flex items-center justify-center gap-2 '> <IoMdMail className='cursor-pointer hover:text-hover transition-all duration-300' /> <div className='cursor-pointer hover:text-hover transition-all duration-300'>Example@gmail.com</div></p>
         <p className='flex items-center justify-center gap-2 '> <IoIosCall  className='cursor-pointer hover:text-hover transition-all duration-300'/> <div className='cursor-pointer hover:text-hover transition-all duration-300' >+01234567890 </div></p>
     </div>
-    <div className={` ${isFullWidth ? 'transition-width duration-500 ease-in-out flex justify-end font-Roboto gap-7 w-[600px]':'flex justify-end font-Roboto gap-7  w-[404px]'} `}>
+    <div className={` ${isFullWidth ? 'flex justify-end font-Roboto gap-7 w-[600px]':'flex justify-end font-Roboto gap-7  w-[404px]'} `}>
         <FaFacebookF className='cursor-pointer hover:text-hover transition-all duration-300'/>
         <FaTwitter className='cursor-pointer hover:text-hover transition-all duration-300' />
         <FaInstagram className='cursor-pointer hover:text-hover transition-all duration-300'/>
