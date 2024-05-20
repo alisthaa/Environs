@@ -138,7 +138,7 @@ const [buttonContent, setButtonContent] = useState({
       {
         image: cause1,
         p: "First environments activity of this summer.",
-        percentage: 65,
+        percentage: 95,
       },
     ]
     const data4 =[
@@ -382,9 +382,8 @@ const [buttonContent, setButtonContent] = useState({
 
 {
   data3.map(el=>(
-<div className='w-[306px]'>
- 
-<div>
+<div className='w-[306px] '>
+<div className='relative bg-[#757575]'>
   <img src={el.image} className='h-full transform transition duration-500 hover:scale-x-[-1] hover:brightness-50' />
    <div className='absolute top-0 right-0 p-2'>
     <button onClick={scrollToTop} className='btn'>Donate Now</button>
@@ -392,7 +391,8 @@ const [buttonContent, setButtonContent] = useState({
   <p className='absolute bottom-0 left-0 p-2 flex items-center font-Roboto text-sm gap-2 font-semibold text-white'><VscGraph className='text-primary'/> Goal: $3600</p>
   <p className='absolute bottom-0 right-0 p-2 flex items-center font-Roboto text-sm gap-2 font-semibold text-white'> <FaThumbsUp className='text-primary' /> Raised: $4000</p>
 </div>
-<ProgressBar percentage={el.percentage}/>
+
+<ProgressBar percentage={el.percentage} />
 <div className='bg-secondary  p-6 border-b-[3px] border-x-[3px] border-white border-dotted'>
   <p className='text-2xl font-Jost mb-4 font-semibold'>{el.p}</p>
   <p className='text-base font-Roboto mb-6 text-[#757575]'>Help today because tomorrow you may be the one who needs more helping!</p>
@@ -523,40 +523,43 @@ nextArrow={<></>}>
 
 
 {/* gallery starts */}
-<div className='py-12'>
+<div className='py-24'>
   <div  className='mx-auto text-center md:w-[800px] pb-12'>
       <p className='font-Jost text-xl text-primary  font-semibold mb-2'>OUR WORK</p>
-      <p className='font-Jost text-[30px] md:text-[40px]  font-semibold '>We consider environment welfare</p>
+      <p className='font-Jost text-[30px] md:text-[40px]  font-semibold mb-4'>We consider environment welfare</p>
       <div className='font-Roboto text-[#757575]'>Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor.</div>
     </div>
-
-
 
 <div className=' flex flex-wrap sm:flex-wrap md:flex-nowrap lg:flex-nowrap justify-center'>
 
 <div className="w-full">
 
-  <div className='relative group'> 
-  <img src={gallery2} alt="" className='w-full'/>
-  <div className='absolute w-full h-full top-0 left-0 bg-primary opacity-0 group-hover:opacity-25 transition-opacity duration-300'></div>
-  <div className='absolute w-full bottom-0 pt-[40px] pb-[48px] text-white left-1/2 transform -translate-x-1/2 text-center group-hover:bg-primary transition-all duration-300'> 
+  <div className='relative group overflow-hidden z-[1px]'> 
+  <img src={gallery2} alt="" className='w-full transition-all duration-500 group-hover:transform group-hover:scale-110'/>
+  <div className='absolute w-full h-0 bottom-0 left-0 bg-primary bg-opacity-40 text-center flex flex-col justify-end transition-all duration-500 z-20 group-hover:h-[100%]'>
+  <div className='text-white transition-all duration-500  bg-opacity-10 pt-10 p-16 flex flex-col items-center justify-center group-hover:bg-primary'> 
   <p className='text-2xl font-Jost font-semibold'>Beauty Of Life</p>
   <p className='font-Roboto'>Gallery Name</p>
   </div>
-  <div className='absolute cursor-pointer hover:brightness-125 flex items-center justify-center h-12 w-12 bg-white  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
-<MdOutlineZoomIn onClick={() => handleImageClickG(gallery2)} className=' text-2xl text-primary '/>
+  </div>
+  <div className=' cursor-pointer bg-white p-3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-n20 opacity-0 transition-all duration-500 z-30 group-hover:opacity-100'>
+<MdOutlineZoomIn onClick={() => handleImageClickG(gallery2)} className=' text-2xl text-primary hover:text-hover transition-all duration-300'/>
 </div>
   </div>
+ 
 
-  <div className='relative group'> 
-  <img src={gallery3} alt="" className='w-full'/>
-  <div className='absolute w-full h-full top-0 left-0 bg-primary opacity-0 group-hover:opacity-25 transition-opacity duration-300'></div>
-  <div className='absolute w-full bottom-0 pt-[40px] pb-[48px] text-white left-1/2 transform -translate-x-1/2 text-center group-hover:bg-primary transition-all duration-300'> 
+
+
+  <div className='relative group overflow-hidden z-[1px]'> 
+  <img src={gallery3} alt="" className='w-full  transition-all duration-500 group-hover:transform group-hover:scale-110'/>
+  <div className='absolute w-full h-0 bottom-0 left-0 bg-primary bg-opacity-40 text-center flex flex-col justify-end transition-all duration-500 z-20 group-hover:h-[100%]'>
+  <div className='text-white transition-all duration-500  bg-opacity-10 pt-10 p-16 flex flex-col items-center justify-center group-hover:bg-primary'> 
   <p className='text-2xl font-Jost font-semibold'>Beauty Of Life</p>
   <p className='font-Roboto'>Gallery Name</p>
   </div>
-  <div className='absolute cursor-pointer hover:brightness-125 flex items-center justify-center h-12 w-12 bg-white  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
-<MdOutlineZoomIn onClick={() => handleImageClickG(gallery3)} className=' text-2xl text-primary '/>
+  </div>
+  <div className='cursor-pointer bg-white p-3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-n20 opacity-0 transition-all duration-500 z-30 group-hover:opacity-100'>
+<MdOutlineZoomIn onClick={() => handleImageClickG(gallery2)} className=' text-2xl text-primary hover:text-hover transition-all duration-300'/>
 </div>
   </div>
 
@@ -569,43 +572,55 @@ nextArrow={<></>}>
 
 
 <div className="w-full">
-<div className='relative group'> 
-  <img src={gallery1} alt="" className='w-full'/>
-  <div className='absolute w-full h-full top-0 left-0 bg-primary opacity-0 group-hover:opacity-25 transition-opacity duration-300'></div>
-  <div className='absolute w-full bottom-0 pt-[40px] pb-[48px] text-white left-1/2 transform -translate-x-1/2 text-center group-hover:bg-primary transition-all duration-300'> 
+<div className='relative group overflow-hidden z-[1px]'> 
+  <img src={gallery1} alt="" className='w-full transition-all duration-500 group-hover:transform group-hover:scale-110'/>
+  <div className='absolute w-full h-0 bottom-0 left-0 bg-primary bg-opacity-40 text-center flex flex-col justify-end transition-all duration-500 z-20 group-hover:h-[100%]'>
+  <div className='text-white transition-all duration-500  bg-opacity-10 pt-10 p-16 flex flex-col items-center justify-center group-hover:bg-primary'> 
   <p className='text-2xl font-Jost font-semibold'>Beauty Of Life</p>
   <p className='font-Roboto'>Gallery Name</p>
   </div>
-  <div className='absolute cursor-pointer hover:brightness-125 flex items-center justify-center h-12 w-12 bg-white  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
-<MdOutlineZoomIn onClick={() => handleImageClickG(gallery1)} className=' text-2xl text-primary '/>
+  </div>
+  <div className='cursor-pointer bg-white p-3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-n20 opacity-0 transition-all duration-500 z-30 group-hover:opacity-100'>
+<MdOutlineZoomIn onClick={() => handleImageClickG(gallery2)} className=' text-2xl text-primary hover:text-hover transition-all duration-300'/>
 </div>
   </div>
 </div>
 
 <div className="w-full">
-<div className='relative group'> 
-  <img src={gallery4} alt="" className='w-full'/>
-  <div className='absolute w-full h-full top-0 left-0 bg-primary opacity-0 group-hover:opacity-25 transition-opacity duration-300'></div>
-  <div className='absolute w-full bottom-0 pt-[40px] pb-[48px] text-white left-1/2 transform -translate-x-1/2 text-center group-hover:bg-primary transition-all duration-300'> 
+
+
+<div className='relative group overflow-hidden z-[1px]'> 
+  <img src={gallery4} alt="" className='w-full transition-all duration-500 group-hover:transform group-hover:scale-110'/>
+  <div className='absolute w-full h-0 bottom-0 left-0 bg-primary bg-opacity-40 text-center flex flex-col justify-end transition-all duration-500 z-20 group-hover:h-[100%]'>
+  <div className='text-white transition-all duration-500  bg-opacity-10 pt-10 p-16 flex flex-col items-center justify-center group-hover:bg-primary'> 
   <p className='text-2xl font-Jost font-semibold'>Beauty Of Life</p>
   <p className='font-Roboto'>Gallery Name</p>
   </div>
-  <div className='absolute cursor-pointer hover:brightness-125 flex items-center justify-center h-12 w-12 bg-white  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
-<MdOutlineZoomIn onClick={() => handleImageClickG(gallery4)} className=' text-2xl text-primary '/>
+  </div>
+  <div className='cursor-pointer bg-white p-3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-n20 opacity-0 transition-all duration-500 z-30 group-hover:opacity-100'>
+<MdOutlineZoomIn onClick={() => handleImageClickG(gallery2)} className=' text-2xl text-primary hover:text-hover transition-all duration-300'/>
 </div>
   </div>
-  <div className='relative group'> 
-  <img src={gallery5} alt="" className='w-full'/>
-  <div className='absolute w-full h-full top-0 left-0 bg-primary opacity-0 group-hover:opacity-25 transition-opacity duration-300'></div>
-  <div className='absolute w-full bottom-0 pt-[40px] pb-[48px] text-white left-1/2 transform -translate-x-1/2 text-center group-hover:bg-primary transition-all duration-300'> 
+
+
+  <div className='relative group overflow-hidden z-[1px]'> 
+  <img src={gallery5} alt="" className='w-full transition-all duration-500 group-hover:transform group-hover:scale-110'/>
+  <div className='absolute w-full h-0 bottom-0 left-0 bg-primary bg-opacity-40 text-center flex flex-col justify-end transition-all duration-500 z-20 group-hover:h-[100%]'>
+  <div className='text-white transition-all duration-500  bg-opacity-10 pt-10 p-16 flex flex-col items-center justify-center group-hover:bg-primary'> 
   <p className='text-2xl font-Jost font-semibold'>Beauty Of Life</p>
   <p className='font-Roboto'>Gallery Name</p>
   </div>
-  <div className='absolute cursor-pointer hover:brightness-125 flex items-center justify-center h-12 w-12 bg-white  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
-<MdOutlineZoomIn onClick={() => handleImageClickG(gallery5)} className=' text-2xl text-primary '/>
+  </div>
+  <div className='cursor-pointer bg-white p-3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-n20 opacity-0 transition-all duration-500 z-30 group-hover:opacity-100'>
+<MdOutlineZoomIn onClick={() => handleImageClickG(gallery2)} className=' text-2xl text-primary hover:text-hover transition-all duration-300'/>
 </div>
   </div>
+
+
+  
 </div>
+
+
 
 {selectedImageG !== null && (
                 <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex flex-col justify-center items-center ">

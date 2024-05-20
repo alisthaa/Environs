@@ -19,10 +19,10 @@ export default function Gallery() {
 
   return <>
   <BreadCrumb topic={'Image Gallery'} page={'Gallery'}/>
-  <div className='py-12'>
+  <div className='py-24'>
   <div  className='mx-auto text-center md:w-[800px] pb-12'>
       <p className='font-Jost text-xl text-primary  font-semibold mb-2'>OUR WORK</p>
-      <p className='font-Jost text-[30px] md:text-[40px]  font-semibold '>We consider environment welfare</p>
+      <p className='font-Jost text-[30px] md:text-[40px]  font-semibold mb-4'>We consider environment welfare</p>
       <div className='font-Roboto text-[#757575]'>Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor.</div>
     </div>
 

@@ -55,7 +55,7 @@ export default function Footer() {
   
   <div className='px-3 py-12 bg-[#222222]  border-t-[3px] border-white border-dotted'>
   
-<div className='container  flex justify-center text-white'>
+<div className='container  flex justify-between text-white'>
     <div className='mt-12 w-[336px] h-[272px] px-6' >
      <p className='text-2xl font-Jost mb-6'>Newsletter</p>    
      <div className='text-base font-Roboto mb-6 text-grey '>

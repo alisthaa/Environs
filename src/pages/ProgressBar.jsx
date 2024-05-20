@@ -10,7 +10,7 @@ export default function ProgressBar({ percentage }) {
   }, [percentage]);
 
   return (
-    <div className='relative h-3 bg-gray-300 overflow-hidden'>
+    <div className='relative h-3 bg-[#e9ecef] overflow-hidden'>
       <div
         className='absolute top-0 left-0 h-full bg-primary transition-all duration-2000 ease-in-out'
         style={{
