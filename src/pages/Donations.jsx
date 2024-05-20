@@ -37,18 +37,19 @@ const data =[
 
 <div className='my-6 mx-3 flex flex-wrap justify-center gap-6'>
   {
-    data.map(el=>(
+    data.map((el, index)=>(
 
-<div className=' group h-full w-auto md:h-[500px] md:w-[415px] relative '> 
+<div key={index} className='donation-item group h-full w-auto md:h-[500px] md:w-[415px] relative '> 
     <div className='realtive'> 
-     <img src={el.image} alt="" className='brightness-75 group-hover:brightness-50 transition-all duration-300'/>    
+     <img src={el.image} alt="" className='w-full h-full object-cover'/>   
+
      </div>
-     <div className='text-white absolute bottom-0 left-0 p-5 transition-transform duration-300 ease-in-out transform translate-y-0 group-hover:-translate-y-3'> 
+     <div className='text-white donation-content flex flex-col '> 
      <p className='text-primary text-xl font-Jost mb-6 font-semibold'>{el.p}</p>
      <h1 className='text-[32px] md:text-[40px] font-Roboto font-semibold'>Help Us More</h1>
      <p className='font-Jost text-2xl mb-6'>Protect Environments</p>
      <p className='text-base font-Roboto mb-6'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
-    <button onClick={scrollToTop} className='btn hidden group-hover:block transition-transform  duration-300 ease-in-out translate-y-0 group-hover:-translate-y-3'>Donate!</button>
+    <button onClick={scrollToTop} className='donation-btn btn self-start transition-transform duration-300 ease-in-out'>Donate!</button>
      </div>
   </div>
     ))

@@ -16,4 +16,56 @@
   }
   
   }
- 
+ /* src/index.css */
+/* Existing CSS */
+.donation-item {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.donation-item::after {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  display: flex;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.donation-content {
+  position: absolute;
+  width: 100%; 
+  height: 100%; 
+  padding: 20px; 
+  justify-content: end; 
+  bottom: -60px; 
+  left: 0;
+  transition: bottom 0.5s;
+  z-index: 3;
+}
+
+.donation-item:hover .donation-content {
+  bottom: 0; 
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.donation-btn {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.donation-item:hover .donation-btn {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* New CSS for small button */
+.donation-btn-small {
+  padding: 0.5rem 1rem; /* Smaller padding for the button */
+  font-size: 0.875rem;  /* Smaller font size */
+}

@@ -32,9 +32,9 @@ export default function Header() {
   return <>
 <div className='flex justify-center'> 
 
-  <nav className={`${isFullWidth ? 'transition-width duration-500 ease-in-out lg:w-full md:w-full w-full fixed top-0 z-50 m-auto md:m-auto md:fixed md:top-0 lg:m-auto lg:fixed lg:top-0  lg:z-50  md:z-50' : 'fixed top-0  z-50 m-auto md:m-auto md:max-w-[1291px] md:fixed md:top-0   md:z-50 lg:max-w-[1320px] lg:m-auto lg:fixed lg:top-0  lg:z-50'}  `}>
+  <nav className={`fixed top-0 z-50 w-full m-auto bg-white transition-all duration-500 ease-in-out ${isFullWidth ? 'max-w-full' : 'md:max-w-[1291px] lg:max-w-[1320px]'}`}>
 
-    <div className={`${isFullWidth ? " transition-width duration-500 ease-in-out hidden md:text-[16px] md:h-[36px] md:w-full lg:w-full md:flex  md:items-center bg-primary text-white md:px-[20px] md:gap-9 pr-0":"hidden md:text-[16px] md:h-[36px] md:max-w-[1291px] lg:max-w-[1320px] md:flex  md:items-center bg-primary text-white md:px-[20px] md:gap-9 pr-0"}  `}> 
+    <div className={`${isFullWidth ? "  hidden md:text-[16px] md:h-[36px] md:w-full lg:w-full md:flex  md:items-center bg-primary text-white md:px-[20px] md:gap-9 pr-0":"hidden md:text-[16px] md:h-[36px] md:max-w-[1291px] lg:max-w-[1320px] md:flex  md:items-center bg-primary text-white md:px-[20px] md:gap-9 pr-0"}  `}> 
     <div className='flex w-[832px] font-Roboto gap-3 pr-3'>
         <p className='flex items-center justify-center gap-2 '> <IoMdMail className='cursor-pointer hover:text-hover transition-all duration-300' /> <div className='cursor-pointer hover:text-hover transition-all duration-300'>Example@gmail.com</div></p>
         <p className='flex items-center justify-center gap-2 '> <IoIosCall  className='cursor-pointer hover:text-hover transition-all duration-300'/> <div className='cursor-pointer hover:text-hover transition-all duration-300' >+01234567890 </div></p>
@@ -49,7 +49,7 @@ export default function Header() {
     </div>
 
 
-    <div className={`${isFullWidth ? "transition-width duration-500 ease-in-out bg-hover m-auto h-auto w-full flex items-center md:h-[75.6px] md:w-full lg:w-full ":"bg-hover m-auto h-auto max-w-[430px] flex items-center md:h-[75.6px] md:max-w-[1291px] lg:max-w-[1320px] "} `}> 
+    <div className={` ${isFullWidth ? " bg-hover m-auto h-auto w-full flex items-center md:h-[75.6px] md:w-full lg:w-full ":"bg-hover m-auto h-auto max-w-[430px] flex items-center md:h-[75.6px] md:max-w-[1291px] lg:max-w-[1320px] "} `}> 
 
     <div className='text-primary grid-cols-1  pl-4  font-Jost text-[34px] md:text-[48px] font-semibold  md:pl-[20px]'>
      
