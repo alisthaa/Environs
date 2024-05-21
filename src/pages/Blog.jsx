@@ -46,7 +46,7 @@ export default function Blog() {
       <p className='font-Jost text-xl text-primary  font-semibold mb-2'>LATEST NEWS</p>
       <p className='font-Jost text-[30px] md:text-[40px]  font-semibold '>Help today because tomorrow you may be the one who needs more helping!</p>
     </div>
-    <div className='flex justify-center gap-6 '> 
+    <div className='flex flex-wrap justify-center gap-6 '> 
 {
   data.map((el,index)=>(
 <div className='w-[306px] border'>

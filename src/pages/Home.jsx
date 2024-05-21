@@ -31,7 +31,7 @@ import gallery3 from '../assets/images/gallery-3.jpg'
 import gallery4 from '../assets/images/gallery-4.jpg'
 import gallery5 from '../assets/images/gallery-5.jpg'
 import Slider from 'react-slick'
-import { FaLocationDot } from 'react-icons/fa6'
+import { FaArrowLeft, FaArrowRight, FaLocationDot } from 'react-icons/fa6'
 import { SlCalender } from "react-icons/sl";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -169,7 +169,7 @@ const [buttonContent, setButtonContent] = useState({
         image: blog4,
       },
     ]
-    const data=[
+    const data6=[
       {
         image: volunteer1,
       },
@@ -187,11 +187,28 @@ const [buttonContent, setButtonContent] = useState({
       const { className, style, onClick } = props;
       return (
         <div
-          className={className}
-          style={{ ...style, display: "block", background: "red" }}
+          className={`${className} slick-arrow`}
+          style={{ 
+            ...style,     
+            position: 'absolute',
+              top: '-60px',
+              right: '0',
+              width: '80px',
+              height: '40px',
+              display: 'flex',
+              alignItems: 'center', 
+              justifyContent: 'center', 
+              transition: '0.5s',
+              cursor: 'pointer',
+              margin:'16px'
+          }}
           onClick={onClick}
-        />
+          >
+            <FaArrowRight color="white" size="16" />
+          </div>
+        
       );
+      
     }
     
     function SamplePrevArrow(props) {
@@ -199,12 +216,29 @@ const [buttonContent, setButtonContent] = useState({
       return (
         <div
           className={className}
-          style={{ ...style, display: "block", background: "green" }}
+          style={{ 
+            ...style, 
+            position: 'absolute',
+              top: '-60px',
+              left: '0',
+              width: '80px',
+              height: '40px',
+              display: 'flex',
+              alignItems: 'center', 
+              justifyContent: 'center', 
+              transition: '0.5s',
+              cursor: 'pointer',
+              margin:'14px'
+          }}
           onClick={onClick}
-        />
+          >
+            <FaArrowLeft color="white" size="16" />
+          </div>
+        
       );
     }
-    var settings = {
+    
+    const settings = {
       dots: false,
       infinite: true,
       speed: 500,
@@ -218,18 +252,14 @@ const [buttonContent, setButtonContent] = useState({
           breakpoint: 1024,
           settings: {
             slidesToShow: 2,
-            
           }
         },
         {
           breakpoint: 768,
           settings: {
             slidesToShow: 1,
-          
-           
           }
         },
-       
       ]
     };
    
@@ -238,11 +268,11 @@ const [buttonContent, setButtonContent] = useState({
 
  {/* about us start */}
  <div className='py-10 px-3'> 
-<div className='container my-12 h-[315px] md:h-[585px] md:flex '>
+<div className='container my-12 h-auto  md:h-[585px] md:flex '>
  <div className='h-[100%]'> <img src={about} className='p-6 w-full h-full'/> </div> 
  <div className='px-6 md:w-[1000px] pt-6' > 
-   <p className='text-primary font-Jost mb-2 text-xl font-semibold'>ABOUT US </p>
-   <h1 className='text-[40px] font-Jost mb-6 font-semibold'>Our main goal is to protect environment </h1>
+   <p className='text-primary font-Jost mb-5 text-xl font-semibold'>ABOUT US </p>
+   <h1 className='text-3xl md:text-[40px] font-Jost mb-8 font-semibold'>Our main goal is to protect environment </h1>
    <p className='mb-6 text-xl font-Roboto text-[#757575]'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has </p>
    <div className='p-6 font-Roboto bg-secondary'> 
     <div className='flex flex-wrap gap-4 mb-4 text-base'>
@@ -263,6 +293,7 @@ const [buttonContent, setButtonContent] = useState({
    </div>
 </div>
 </div>
+
 
 
 {/* about us end */}
@@ -347,14 +378,14 @@ const [buttonContent, setButtonContent] = useState({
 {/* achievments begins */}
 
 <div className='relative '> 
-<img src={volunteersbg} className='brightness-50 h-screen '/>
-<div className='py-10 px-3 absolute top-0 left-0 right-0'> 
+<img src={volunteersbg} className='brightness-50 object-cover h-screen'/>
+<div className='absolute  py-10 px-3  top-0 left-0 right-0'> 
 <div className='absolute py-10 px-3 container top-0 left-0 right-0'>
 <div className='mx-auto py-10 px-3 text-center md:w-[800px]'>
   <p className='font-Jost text-xl text-primary  font-semibold mb-2'>ACHIEVEMENTS</p>
   <p className='text-base font-Roboto text-white'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley</p>
 </div>
-<div className='my-6 mx-3 flex flex-wrap justify-center gap-6'>
+<div className=' my-6 mx-3 flex flex-wrap justify-center gap-6'>
     <CounterItem icon={<FaThumbsUp className='h-[64px] w-[64px]' />} title='Beavers Saved' count={3600} symbol='+' />
     <CounterItem icon={<FaFileInvoiceDollar className='h-[64px] w-[64px]' />} title='Funds Collected' count={513} symbol='$' />
     <CounterItem icon={<IoPerson className='h-[64px] w-[64px]' />} title='Volunteer' count={713} symbol='+' />
@@ -418,24 +449,16 @@ const [buttonContent, setButtonContent] = useState({
 <div className=' py-12 px-3 container'>
 <div>
 
-<div className='mx-auto text-center w-[800px]'>
+<div className='mx-auto text-center md:w-[800px]'>
   <p className='font-Jost text-xl text-primary  font-semibold mb-2'>UPCOMING EVENTS</p>
   <p className='font-Jost text-[30px] md:text-[40px]  font-semibold mb-6'>Help today because tomorrow you may be the one who needs more helping!</p>
 </div>
 
-
-
-<Slider {...settings}
-prevArrow={
-<div className='bg-primary h-2 w-2 '>
-dfvsd
-</div>
-}
-nextArrow={<></>}>
+<Slider {...settings}>
 
 {
   data4.map(el=>(
-<div className='w-[415px] px-3'>
+<div className='w-[415px] px-3 relative'>
   <div className=' h-[332px]'>  
     <img src={el.image} alt="" className='' />
     </div>
@@ -471,7 +494,7 @@ nextArrow={<></>}>
       <p className='font-Jost text-xl text-primary  font-semibold mb-2'>LATEST NEWS</p>
       <p className='font-Jost text-[30px] md:text-[40px]  font-semibold '>Help today because tomorrow you may be the one who needs more helping!</p>
     </div>
-    <div className='flex justify-center gap-6 '> 
+    <div className='flex flex-wrap justify-center gap-6 '> 
 {
   data5.map((el,index)=>(
 <div className='w-[306px] border'>
@@ -479,7 +502,7 @@ nextArrow={<></>}>
 <img key={index} src={el.image} alt="" className=' brightness-75 transition-all ease-in-out  transform group-hover:scale-125 group-hover:brightness-50 duration-500'/>
 
 <div className='absolute text-white flex gap-20 bottom-0 p-5'> 
-  <p className='flex justify-center items-center gap-2'><FaClock/> Dec 1.2024</p> 
+  <p className='flex flex-wrap justify-center items-center gap-2'><FaClock/> Dec 1.2024</p> 
    <div className='flex justify-center items-center gap-2'> 
      <p className='flex justify-center items-center gap-1'>3 <FaHeart/> </p> 
      <p className='flex justify-center items-center gap-1'> 0<FaComment/></p>
@@ -501,7 +524,7 @@ nextArrow={<></>}>
                 <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex flex-col justify-center items-center ">
                     <div className='relative'> 
                     <img
-                        src={data[selectedImage].image}
+                        src={data5[selectedImage].image}
                         alt=""
                         className="max-w-full max-h-full p-2 bg-white"
                     />
@@ -652,12 +675,12 @@ nextArrow={<></>}>
 <div className='mt-12'>
 <div className='py-12 px-3 bg-[#fff8ef]'>
 <div className='pb-8'> 
-<div className='container  mt-12 flex flex-wrap justify-center gap-12 '>
+<div className='container mt-12 flex flex-wrap justify-center gap-12 '>
 
 
 <div className='grid grid-cols-2 w-[536px] gap-6'>
 {
-  data.map(el=>(
+  data6.map((el,index)=>(
 
 <div className='relative w-full group overflow-hidden'>
   <img src={el.image} alt="" className=' w-full h-full brightness-90  transition-all duration-500 transform group-hover:scale-125 group-hover:brightness-50' />

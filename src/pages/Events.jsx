@@ -4,7 +4,7 @@ import event2 from '../assets/images/events-2.jpg'
 import event3 from '../assets/images/events-3.jpg'
 import event4 from '../assets/images/events-4.jpg'
 import Slider from 'react-slick'
-import { FaLocationDot } from 'react-icons/fa6'
+import { FaArrowLeft, FaArrowRight, FaLocationDot } from 'react-icons/fa6'
 import { SlCalender } from "react-icons/sl";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -35,11 +35,28 @@ function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
-      className={className}
-      style={{ ...style, display: "block", background: "red" }}
+      className={`${className} slick-arrow`}
+      style={{ 
+        ...style,     
+        position: 'absolute',
+          top: '-60px',
+          right: '0',
+          width: '80px',
+          height: '40px',
+          display: 'flex',
+          alignItems: 'center', 
+          justifyContent: 'center', 
+          transition: '0.5s',
+          cursor: 'pointer',
+          margin:'16px'
+      }}
       onClick={onClick}
-    />
+      >
+        <FaArrowRight color="white" size="16" />
+      </div>
+    
   );
+  
 }
 
 function SamplePrevArrow(props) {
@@ -47,12 +64,29 @@ function SamplePrevArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", background: "green" }}
+      style={{ 
+        ...style, 
+        position: 'absolute',
+          top: '-60px',
+          left: '0',
+          width: '80px',
+          height: '40px',
+          display: 'flex',
+          alignItems: 'center', 
+          justifyContent: 'center', 
+          transition: '0.5s',
+          cursor: 'pointer',
+          margin:'14px'
+      }}
       onClick={onClick}
-    />
+      >
+        <FaArrowLeft color="white" size="16" />
+      </div>
+    
   );
 }
-var settings = {
+
+const settings = {
   dots: false,
   infinite: true,
   speed: 500,
@@ -66,46 +100,33 @@ var settings = {
       breakpoint: 1024,
       settings: {
         slidesToShow: 2,
-        
       }
     },
     {
       breakpoint: 768,
       settings: {
         slidesToShow: 1,
-      
-       
       }
     },
-   
   ]
 };
+
   return <>
    <BreadCrumb topic={'Upcoming Events'} page={'Events'}/>
   <div className='py-12 px-3'>
 <div className=' py-12 px-3 container'>
 <div>
 
-<div className='mx-auto text-center w-[800px]'>
+<div className='mx-auto text-center md:w-[800px]'>
   <p className='font-Jost text-xl text-primary  font-semibold mb-2'>UPCOMING EVENTS</p>
   <p className='font-Jost text-[30px] md:text-[40px]  font-semibold mb-6'>Help today because tomorrow you may be the one who needs more helping!</p>
 </div>
 
-
-
-
-
-<Slider {...settings}
-prevArrow={
-<div className='bg-primary h-2 w-2 '>
-dfvsd
-</div>
-}
-nextArrow={<></>}>
+<Slider {...settings}>
 
 {
   data.map(el=>(
-<div className='w-[415px] px-3'>
+<div className='w-[415px] px-3 relative'>
   <div className=' h-[332px]'>  
     <img src={el.image} alt="" className='' />
     </div>

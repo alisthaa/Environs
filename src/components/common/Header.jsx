@@ -36,8 +36,8 @@ export default function Header() {
 
     <div className={`${isFullWidth ? "  hidden md:text-[16px] md:h-[36px] md:w-full lg:w-full md:flex  md:items-center bg-primary text-white md:px-[20px] md:gap-9 pr-0":"hidden md:text-[16px] md:h-[36px] md:max-w-[1291px] lg:max-w-[1320px] md:flex  md:items-center bg-primary text-white md:px-[20px] md:gap-9 pr-0"}  `}> 
     <div className='flex w-[832px] font-Roboto gap-3 pr-3'>
-        <p className='flex items-center justify-center gap-2 '> <IoMdMail className='cursor-pointer hover:text-hover transition-all duration-300' /> <div className='cursor-pointer hover:text-hover transition-all duration-300'>Example@gmail.com</div></p>
-        <p className='flex items-center justify-center gap-2 '> <IoIosCall  className='cursor-pointer hover:text-hover transition-all duration-300'/> <div className='cursor-pointer hover:text-hover transition-all duration-300' >+01234567890 </div></p>
+        <p className='flex items-center justify-center gap-2 '> <IoMdMail className='cursor-pointer hover:text-hover transition-all duration-300' /> <div className='cursor-pointer text-hover hover:text-opacity-70 transition-all duration-300'>Example@gmail.com</div></p>
+        <p className='flex items-center justify-center gap-2 '> <IoIosCall  className='cursor-pointer hover:text-hover transition-all duration-300'/> <div className='cursor-pointer text-hover hover:text-opacity-70 transition-all duration-300' >+01234567890 </div></p>
     </div>
     <div className={` ${isFullWidth ? 'flex justify-end font-Roboto gap-7 w-[600px]':'flex justify-end font-Roboto gap-7  w-[404px]'} `}>
         <FaFacebookF className='cursor-pointer hover:text-hover transition-all duration-300'/>

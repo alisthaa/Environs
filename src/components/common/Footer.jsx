@@ -55,7 +55,7 @@ export default function Footer() {
   
   <div className='px-3 py-12 bg-[#222222]  border-t-[3px] border-white border-dotted'>
   
-<div className='container  flex justify-between text-white'>
+<div className='container  flex flex-wrap justify-between text-white'>
     <div className='mt-12 w-[336px] h-[272px] px-6' >
      <p className='text-2xl font-Jost mb-6'>Newsletter</p>    
      <div className='text-base font-Roboto mb-6 text-grey '>
@@ -131,16 +131,16 @@ export default function Footer() {
 </div>
   </div>
   <div className='bg-[#222222] border-t-[1px] border-grey'> 
-  <div className='container px-3 py-6  text-white flex justify-between'>
-<p className='flex gap-2 items-center'> <TbCircleLetterC/> <p className='text-primary hover:brightness-75 cursor-pointer transition-all duration-300'>Environs,</p> All right reserved</p>
-<div className='flex gap-7 cursor-pointer items-center '>
+  <div className='container px-3 py-6  text-white flex flex-wrap justify-between'>
+<p className='flex flex-wrap gap-2 items-center'> <TbCircleLetterC/> <p className='text-primary hover:brightness-75 cursor-pointer transition-all duration-300'>Environs,</p> All right reserved</p>
+<div className='flex flex-wrap gap-7 cursor-pointer items-center '>
     <FaFacebook/>
     <FaTwitter/>
     <FaInstagram/>
     <FaPinterest/>
     <FaLinkedin/>
 </div>
-<p className='flex gap-2 items-center'>Designed By <p className='text-primary hover:brightness-75 cursor-pointer transition-all duration-300'>HTML Codex</p> Distributed By <p className='text-primary hover:brightness-75 cursor-pointer transition-all duration-300'>ThemeWagon</p></p>
+<p className='flex flex-wrap gap-2 items-center'>Designed By <p className='text-primary hover:brightness-75 cursor-pointer transition-all duration-300'>HTML Codex</p> Distributed By <p className='text-primary hover:brightness-75 cursor-pointer transition-all duration-300'>ThemeWagon</p></p>
   </div>
   </div>
   </>

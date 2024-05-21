@@ -40,11 +40,11 @@ const [buttonContent, setButtonContent] = useState({
   return <> 
   <BreadCrumb topic={'About Us'} page={'About Us'}/>
     <div className='py-10 px-3'> 
-<div className='container my-12 h-[315px] md:h-[585px] md:flex '>
+<div className='container my-12 h-auto md:h-[585px] md:flex '>
  <div className='h-[100%]'> <img src={about} className='p-6 w-full h-full'/> </div> 
  <div className='px-6 md:w-[1000px] pt-6' > 
-   <p className='text-primary font-Jost mb-2 text-xl font-semibold'>ABOUT US </p>
-   <h1 className='text-[40px] font-Jost mb-6 font-semibold'>Our main goal is to protect environment </h1>
+   <p className='text-primary font-Jost mb-5 text-xl font-semibold'>ABOUT US </p>
+   <h1 className='text-3xl md:text-[40px] font-Jost mb-8 font-semibold'>Our main goal is to protect environment </h1>
    <p className='mb-6 text-xl font-Roboto text-[#757575]'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has </p>
    <div className='p-6 font-Roboto bg-secondary'> 
     <div className='flex flex-wrap gap-4 mb-4 text-base'>

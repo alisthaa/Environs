@@ -16,8 +16,7 @@
   }
   
   }
- /* src/index.css */
-/* Existing CSS */
+  
 .donation-item {
   position: relative;
   overflow: hidden;
@@ -65,6 +64,33 @@
 }
 
 
+.slick-prev::before,
+.slick-next::before {
+  display: none;
+}
+
+
+.slick-arrow {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #f8b864;
+  background: #f8b864; 
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+  
+}
+
+.slick-arrow:hover {
+  background: #f3e0c6; 
+  
+}
+.slick-arrow:hover svg {
+  color: #f8b864 !important;  
+}
 
 
 

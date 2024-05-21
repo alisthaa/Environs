@@ -33,7 +33,7 @@ export default function Volunteers() {
   <div className='mt-12'>
 <div className='py-12 px-3 bg-[#fff8ef]'>
 <div className='pb-8'> 
-<div className='container  mt-12 flex flex-wrap justify-center gap-12 '>
+<div className='container mt-12 flex flex-wrap justify-center gap-12 '>
 
 
 <div className='grid grid-cols-2 w-[536px] gap-6'>
