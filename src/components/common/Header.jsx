@@ -53,14 +53,14 @@ export default function Header() {
 
     <div className='text-primary grid-cols-1  pl-4  font-Jost text-[34px] md:text-[48px] font-semibold  md:pl-[20px]'>
      
-
-    <div className={`flex justify-between items-center ${isFullWidth? " gap-64":" gap-56"} `}> 
+<Link to={"/"}>
+    <div className={`flex justify-between items-center ${isFullWidth? " gap-64":" gap-56"} `} > 
      Environs
     <BiMenu onClick={() => {
             setIsMenuOpen((prev) => !prev);
           }} className='md:hidden lg:hidden'/>
     </div>
-
+    </Link>
     <div className={` ${isMenuOpen? `transition-width duration-500 ease-in-out text-[#0000008c] text-base font-normal grid-cols-1 font-Roboto`:`hidden` } `}>
        <div className='py-4'>  <Link to='/' className='hover:text-primary transition-all duration-200'>Home</Link> </div>
        <div className='pb-4' > <Link to='about' className='hover:text-primary transition-all duration-200'>About</Link></div>
