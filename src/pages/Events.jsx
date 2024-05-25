@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
 import event1 from '../assets/images/events-1.jpg'
 import event2 from '../assets/images/events-2.jpg'
 import event3 from '../assets/images/events-3.jpg'
@@ -9,28 +10,30 @@ import { SlCalender } from "react-icons/sl";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import BreadCrumb from '../components/common/BreadCrumb'
+import { Link } from 'react-router-dom';
 
 export default function Events() {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    axios
+      .get('http://localhost:3000/api/events')
+      .then((res) => {
+        console.log(res.data);
+        setData(res.data);
+        setLoading(false)
+      })
+      .catch(err=>{
+        console.log(err);   
+      });
+  }, []);
   const scrollToTop = () => {
     window.scrollTo({
         top: 0,
         behavior: "smooth" // Scroll smoothly to top
     });
 };
-const data =[
-  {
-    image: event2,
-  },
-  {
-    image: event3,
-  },
-  {
-    image: event4,
-  },
-  {
-    image: event1,
-  },
-]
+
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
@@ -110,7 +113,9 @@ const settings = {
     },
   ]
 };
-
+if (loading) {
+  return <div>Loading...</div>;
+}
   return <>
    <BreadCrumb topic={'Upcoming Events'} page={'Events'}/>
   <div className='py-12 px-3'>
@@ -125,10 +130,10 @@ const settings = {
 <Slider {...settings}>
 
 {
-  data.map(el=>(
-<div className='w-[415px] px-3 relative'>
+  data.map((el,index)=>(
+<div key={index} className='w-[415px] px-3 relative'>
   <div className=' h-[332px]'>  
-    <img src={el.image} alt="" className='' />
+    <img src={`http://localhost:3000${el.image}`} />
     </div>
     <div className='bg-secondary p-6 border-b-[3px] border-x-[3px] border-white border-dotted'>
       <div className='flex justify-between mb-6 text-grey font-Roboto text-base'> 
@@ -137,7 +142,9 @@ const settings = {
       </div>
       <p className='font-Jost text-[24px] mb-6 font-semibold'>How To Build A Cleaning Plan</p>
       <p className='font-Roboto mb-6 text-grey text-base'>Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor.</p>
-      <button onClick={scrollToTop} className='btn'>Read More</button>
+      <Link to={`/events/${el._id}`}>
+  <button className='btn'>Read More</button>
+  </Link> 
     </div>
    </div>
 

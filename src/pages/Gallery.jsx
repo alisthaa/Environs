@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import gallery1 from '../assets/images/gallery-1.jpg'
 import gallery2 from '../assets/images/gallery-2.jpg'
 import gallery3 from '../assets/images/gallery-3.jpg'
@@ -7,10 +7,25 @@ import gallery5 from '../assets/images/gallery-5.jpg'
 import { MdOutlineZoomIn } from "react-icons/md";
 import { ImCross } from 'react-icons/im';
 import BreadCrumb from '../components/common/BreadCrumb'
+import axios from 'axios'
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState(null);
-    const handleImageClick = (imageSrc) => {
-        setSelectedImage(imageSrc);
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios
+      .get('http://localhost:3000/api/gallery')
+      .then((res) => {
+        console.log(res.data);
+        setData(res.data);
+        
+      })
+      .catch(err=>{
+        console.log(err);   
+      });
+  }, []);
+ 
+    const handleImageClick = (index) => {
+        setSelectedImage(index);
     };
 
     const handleCloseModal = () => {
@@ -31,7 +46,9 @@ export default function Gallery() {
 <div className="w-full">
 
   <div className='relative group overflow-hidden z-[1px]'> 
-  <img src={gallery2} alt="" className='w-full transition-all duration-500 group-hover:transform group-hover:scale-110'/>
+  {data.length > 0 && (
+  <img src={`http://localhost:3000${data[0].image}`} alt="" className='w-full transition-all duration-500 group-hover:transform group-hover:scale-110'/>
+)}
   <div className='absolute w-full h-0 bottom-0 left-0 bg-primary bg-opacity-40 text-center flex flex-col justify-end transition-all duration-500 z-20 group-hover:h-[100%]'>
   <div className='text-white transition-all duration-500  bg-opacity-10 pt-10 p-16 flex flex-col items-center justify-center group-hover:bg-primary'> 
   <p className='text-2xl font-Jost font-semibold'>Beauty Of Life</p>
@@ -39,7 +56,7 @@ export default function Gallery() {
   </div>
   </div>
   <div className=' cursor-pointer bg-white p-3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-n20 opacity-0 transition-all duration-500 z-30 group-hover:opacity-100'>
-<MdOutlineZoomIn onClick={() => handleImageClick(gallery2)} className=' text-2xl text-primary hover:text-hover transition-all duration-300'/>
+<MdOutlineZoomIn onClick={() => handleImageClick(0)} className=' text-2xl text-primary hover:text-hover transition-all duration-300'/>
 </div>
   </div>
  
@@ -47,7 +64,9 @@ export default function Gallery() {
 
 
   <div className='relative group overflow-hidden z-[1px]'> 
-  <img src={gallery3} alt="" className='w-full  transition-all duration-500 group-hover:transform group-hover:scale-110'/>
+  {data.length > 0 && (
+  <img src={`http://localhost:3000${data[1].image}`} alt="" className='w-full transition-all duration-500 group-hover:transform group-hover:scale-110'/>
+)}
   <div className='absolute w-full h-0 bottom-0 left-0 bg-primary bg-opacity-40 text-center flex flex-col justify-end transition-all duration-500 z-20 group-hover:h-[100%]'>
   <div className='text-white transition-all duration-500  bg-opacity-10 pt-10 p-16 flex flex-col items-center justify-center group-hover:bg-primary'> 
   <p className='text-2xl font-Jost font-semibold'>Beauty Of Life</p>
@@ -55,7 +74,7 @@ export default function Gallery() {
   </div>
   </div>
   <div className='cursor-pointer bg-white p-3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-n20 opacity-0 transition-all duration-500 z-30 group-hover:opacity-100'>
-<MdOutlineZoomIn onClick={() => handleImageClick(gallery2)} className=' text-2xl text-primary hover:text-hover transition-all duration-300'/>
+<MdOutlineZoomIn onClick={() => handleImageClick(1)} className=' text-2xl text-primary hover:text-hover transition-all duration-300'/>
 </div>
   </div>
 
@@ -69,7 +88,9 @@ export default function Gallery() {
 
 <div className="w-full">
 <div className='relative group overflow-hidden z-[1px]'> 
-  <img src={gallery1} alt="" className='w-full transition-all duration-500 group-hover:transform group-hover:scale-110'/>
+{data.length > 0 && (
+  <img src={`http://localhost:3000${data[2].image}`} alt="" className='w-full transition-all duration-500 group-hover:transform group-hover:scale-110'/>
+)}
   <div className='absolute w-full h-0 bottom-0 left-0 bg-primary bg-opacity-40 text-center flex flex-col justify-end transition-all duration-500 z-20 group-hover:h-[100%]'>
   <div className='text-white transition-all duration-500  bg-opacity-10 pt-10 p-16 flex flex-col items-center justify-center group-hover:bg-primary'> 
   <p className='text-2xl font-Jost font-semibold'>Beauty Of Life</p>
@@ -77,7 +98,7 @@ export default function Gallery() {
   </div>
   </div>
   <div className='cursor-pointer bg-white p-3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-n20 opacity-0 transition-all duration-500 z-30 group-hover:opacity-100'>
-<MdOutlineZoomIn onClick={() => handleImageClick(gallery2)} className=' text-2xl text-primary hover:text-hover transition-all duration-300'/>
+<MdOutlineZoomIn onClick={() => handleImageClick(2)} className=' text-2xl text-primary hover:text-hover transition-all duration-300'/>
 </div>
   </div>
 </div>
@@ -86,7 +107,9 @@ export default function Gallery() {
 
 
 <div className='relative group overflow-hidden z-[1px]'> 
-  <img src={gallery4} alt="" className='w-full transition-all duration-500 group-hover:transform group-hover:scale-110'/>
+{data.length > 0 && (
+  <img src={`http://localhost:3000${data[3].image}`} alt="" className='w-full transition-all duration-500 group-hover:transform group-hover:scale-110'/>
+)}
   <div className='absolute w-full h-0 bottom-0 left-0 bg-primary bg-opacity-40 text-center flex flex-col justify-end transition-all duration-500 z-20 group-hover:h-[100%]'>
   <div className='text-white transition-all duration-500  bg-opacity-10 pt-10 p-16 flex flex-col items-center justify-center group-hover:bg-primary'> 
   <p className='text-2xl font-Jost font-semibold'>Beauty Of Life</p>
@@ -94,13 +117,15 @@ export default function Gallery() {
   </div>
   </div>
   <div className='cursor-pointer bg-white p-3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-n20 opacity-0 transition-all duration-500 z-30 group-hover:opacity-100'>
-<MdOutlineZoomIn onClick={() => handleImageClick(gallery2)} className=' text-2xl text-primary hover:text-hover transition-all duration-300'/>
+<MdOutlineZoomIn onClick={() => handleImageClick(3)} className=' text-2xl text-primary hover:text-hover transition-all duration-300'/>
 </div>
   </div>
 
 
   <div className='relative group overflow-hidden z-[1px]'> 
-  <img src={gallery5} alt="" className='w-full transition-all duration-500 group-hover:transform group-hover:scale-110'/>
+  {data.length > 0 && (
+  <img src={`http://localhost:3000${data[4].image}`} alt="" className='w-full transition-all duration-500 group-hover:transform group-hover:scale-110'/>
+)}
   <div className='absolute w-full h-0 bottom-0 left-0 bg-primary bg-opacity-40 text-center flex flex-col justify-end transition-all duration-500 z-20 group-hover:h-[100%]'>
   <div className='text-white transition-all duration-500  bg-opacity-10 pt-10 p-16 flex flex-col items-center justify-center group-hover:bg-primary'> 
   <p className='text-2xl font-Jost font-semibold'>Beauty Of Life</p>
@@ -108,7 +133,7 @@ export default function Gallery() {
   </div>
   </div>
   <div className='cursor-pointer bg-white p-3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-n20 opacity-0 transition-all duration-500 z-30 group-hover:opacity-100'>
-<MdOutlineZoomIn onClick={() => handleImageClick(gallery2)} className=' text-2xl text-primary hover:text-hover transition-all duration-300'/>
+<MdOutlineZoomIn onClick={() => handleImageClick(4)} className=' text-2xl text-primary hover:text-hover transition-all duration-300'/>
 </div>
   </div>
 
@@ -123,7 +148,7 @@ export default function Gallery() {
                 <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex flex-col justify-center items-center ">
                     <div className='relative'> 
                     <img
-                        src={selectedImage}
+                        src={`http://localhost:3000${data[selectedImage].image}`}
                         alt=""
                         className="max-w-full max-h-full p-2 bg-white"
                     />

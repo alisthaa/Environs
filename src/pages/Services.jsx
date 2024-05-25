@@ -1,35 +1,32 @@
-import React from 'react'
-import service1 from '../assets/images/service-1.jpg'
-import service2 from '../assets/images/service-2.jpg'
-import service3 from '../assets/images/service-3.jpg'
-import service4 from '../assets/images/service-4.jpg'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
 import BreadCrumb from '../components/common/BreadCrumb'
 
 export default function Services() {
- const data = [
-    {
-     image: service1,
-     p: "Raising money to help"
-    },
-    {
-     image: service2,
-     p: "Close work with services"
-    },
-    {
-     image: service3,
-     p: "Pro Guided Tours Only"
-    },
-    {
-     image: service4,
-     p: "Protecting animal area"
-    },
-  ]
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    axios
+      .get('http://localhost:3000/api/services')
+      .then((res) => {
+        console.log(res.data);
+        setData(res.data);
+        setLoading(false)
+      })
+      .catch(err=>{
+        console.log(err);   
+      });
+  }, []);
+ 
   const scrollToTop = () => {
     window.scrollTo({
         top: 0,
         behavior: "smooth" // Scroll smoothly to top
     });
 };
+if (loading) {
+  return <div>Loading...</div>;
+}
   return<>
   <BreadCrumb topic={'Our Services'} page={'Services'}/>
   <div className='bg-hover px-3 py-12'>
@@ -43,10 +40,10 @@ export default function Services() {
   
  <div className='flex flex-wrap justify-center mt-6 mx-3'>
 {
-  data.map(el=>(
-<div className='relative flex flex-col px-3 mt-6 overflow-hidden group '>
+  data.map((el, index)=>(
+<div key={index} className='relative flex flex-col px-3 mt-6 overflow-hidden group '>
     <div className=' w-[306px] h-[367px] overflow-hidden'>
-    <img src={el.image} className='   brightness-75 ease-in-out  transform group-hover:scale-125 group-hover:brightness-50 transition-all duration-500'/>
+    <img src={`http://localhost:3000${el.image}`} className='   brightness-75 ease-in-out  transform group-hover:scale-125 group-hover:brightness-50 transition-all duration-500'/>
     </div>
     <div> 
     <p className=' absolute bottom-36 mx-auto text-2xl font-Jost font-semibold  text-white p-2 hover:text-primary cursor cursor-pointer'>{el.p}</p>

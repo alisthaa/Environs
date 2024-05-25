@@ -1,31 +1,37 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
+
 import service2 from '../assets/images/service-2.jpg'
 import donation1 from '../assets/images/donation-1.jpg'
 import donation3 from '../assets/images/donation-3.jpg'
 import BreadCrumb from '../components/common/BreadCrumb'
 
 export default function Donations() {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    axios
+      .get('http://localhost:3000/api/donations')
+      .then((res) => {
+        console.log(res.data);
+        setData(res.data);
+        setLoading(false)
+      })
+      .catch(err=>{
+        console.log(err);   
+      });
+  }, []);
   const scrollToTop = () => {
     window.scrollTo({
         top: 0,
         behavior: "smooth" // Scroll smoothly to top
     });
 };
-const data =[
-  {
-    image: donation1,
-    p:"ORGANIC"
-  },
-  {
-    image: service2,
-    p:"ECOSYSTEM"
-  },
-  {
-    image: donation3,
-    p:"RECYCLING"
-  },
-]
+if (loading) {
+  return <div>Loading...</div>;
+}
   return <>
+  
    <BreadCrumb topic={'Donation'} page={'Donation'}/>
   <div className='py-12 px-3'>
   <div className='py-12 px-3' >
@@ -41,7 +47,7 @@ const data =[
 
 <div key={index} className='donation-item group h-full w-auto md:h-[500px] md:w-[415px] relative '> 
     <div className='realtive'> 
-     <img src={el.image} alt="" className='w-full h-full object-cover'/>   
+     <img src={`http://localhost:3000${el.image}`} alt="" className='w-full h-full object-cover'/>   
 
      </div>
      <div className='text-white donation-content flex flex-col '> 

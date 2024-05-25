@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
 import blog1 from '../assets/images/blog-1.jpg'
 import blog2 from '../assets/images/blog-2.jpg'
 import blog3 from '../assets/images/blog-3.jpg'
@@ -7,37 +8,43 @@ import { FaClock, FaComment, FaHeart } from 'react-icons/fa6'
 import { MdOutlineZoomIn } from "react-icons/md";
 import { ImCross } from "react-icons/im";
 import BreadCrumb from '../components/common/BreadCrumb'
+import { Link } from 'react-router-dom';
 
 export default function Blog() {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedImage, setSelectedImage] = useState(null);
+  useEffect(() => {
+    axios
+      .get('http://localhost:3000/api/blogs')
+      .then((res) => {
+        console.log(res.data);
+        setData(res.data);
+        setLoading(false)
+      })
+      .catch(err=>{
+        console.log(err);   
+      });
+  }, []);
   const scrollToTop = () => {
     window.scrollTo({
         top: 0,
         behavior: "smooth" // Scroll smoothly to top
     });
 };
-  const data=[
-    {
-      image: blog1,
-    },
-    {
-      image: blog2,
-    },
-    {
-      image: blog3,
-    },
-    {
-      image: blog4,
-    },
-  ]
-  const [selectedImage, setSelectedImage] = useState(null);
+  
+  
   const handleImageClick = (index) => {
+    console.log("Clicked index:", index);
       setSelectedImage(index);
   };
 
   const handleCloseModal = () => {
       setSelectedImage(null);
   };
-
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   return <>
   <BreadCrumb topic={'Latest News & Blog'} page={'Blog'}/>
   <div className='py-12 px-3'>
@@ -49,9 +56,9 @@ export default function Blog() {
     <div className='flex flex-wrap justify-center gap-6 '> 
 {
   data.map((el,index)=>(
-<div className='w-[306px] border'>
+<div key={el._id} className='w-[306px] border'>
   <div className='group overflow-hidden relative'>
-<img key={index} src={el.image} alt="" className=' brightness-75 transition-all ease-in-out  transform group-hover:scale-125 group-hover:brightness-50 duration-500'/>
+<img   src={`http://localhost:3000${el.image}`} alt="" className=' brightness-75 transition-all ease-in-out  transform group-hover:scale-125 group-hover:brightness-50 duration-500'/>
 
 <div className='absolute text-white flex gap-20 bottom-0 p-5'> 
   <p className='flex justify-center items-center gap-2'><FaClock/> Dec 1.2024</p> 
@@ -67,7 +74,9 @@ export default function Blog() {
 <div className='p-6 '> 
 <p className='text-2xl font-Jost mb-4 font-semibold'>Save The Topic Forests</p>
 <p className='font-Roboto mb-6  text-base'>Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor.</p>
-<button onClick={scrollToTop} className='btn'>Read More</button>
+<Link to={`/blog/${el._id}`}>
+  <button className='btn'>Read More</button>
+  </Link> 
 </div>
 </div>
  ))
@@ -76,7 +85,7 @@ export default function Blog() {
                 <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex flex-col justify-center items-center ">
                     <div className='relative'> 
                     <img
-                        src={data[selectedImage].image}
+                        src= {`http://localhost:3000${data[selectedImage].image}`}
                         alt=""
                         className="max-w-full max-h-full p-2 bg-white"
                     />

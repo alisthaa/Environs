@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import volunteer1 from '../assets/images/volunteers-1.jpg'
 import volunteer2 from '../assets/images/volunteers-2.jpg'
 import volunteer3 from '../assets/images/volunteers-3.jpg'
@@ -6,6 +6,7 @@ import volunteer4 from '../assets/images/volunteers-4.jpg'
 import { TiTick } from "react-icons/ti";
 import { FaCheck } from 'react-icons/fa6'
 import BreadCrumb from '../components/common/BreadCrumb'
+import axios from 'axios'
 
 export default function Volunteers() {
   const scrollToTop = () => {
@@ -14,20 +15,19 @@ export default function Volunteers() {
         behavior: "smooth" // Scroll smoothly to top
     });
 };
-  const data=[
-    {
-      image: volunteer1,
-    },
-    {
-      image: volunteer3,
-    },
-    {
-      image: volunteer2,
-    },
-    {
-      image: volunteer4,
-    },
-  ]
+const [data, setData] = useState([]);
+useEffect(() => {
+  axios
+    .get('http://localhost:3000/api/volunteer')
+    .then((res) => {
+      console.log(res.data);
+      setData(res.data);
+      
+    })
+    .catch(err=>{
+      console.log(err);   
+    });
+}, []);
   return <>
    <BreadCrumb topic={'Our Volunteers'} page={'Volunteers'}/>
   <div className='mt-12'>
@@ -38,10 +38,10 @@ export default function Volunteers() {
 
 <div className='grid grid-cols-2 w-[536px] gap-6'>
 {
-  data.map(el=>(
+  data.map((el,index)=>(
 
-<div className='relative w-full group overflow-hidden'>
-  <img src={el.image} alt="" className=' w-full h-full brightness-90  transition-all duration-500 transform group-hover:scale-125 group-hover:brightness-50' />
+<div key={index} className='relative w-full group overflow-hidden'>
+  <img src={`http://localhost:3000${el.image}`} alt="" className=' w-full h-full brightness-90  transition-all duration-500 transform group-hover:scale-125 group-hover:brightness-50' />
   <div className='absolute bottom-0 text-white text-center p-5 left-14'>
   <p className='text-[20px] font-Jost mb-2 font-semibold'>Michel Brown</p>
   <p className='font-Roboto'>Communicator</p>

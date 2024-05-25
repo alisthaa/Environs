@@ -14,6 +14,9 @@ import Volunteers from './pages/Volunteers'
 import Error from './pages/Error'
 import Footer from './components/common/Footer'
 import ScrollToTop from './components/common/ScrollToTop'
+import CauseDetail from './pages/CauseDetail'
+import EventDetail from './pages/EventDetail'
+import BlogDetail from './pages/BlogDetail'
 
 export default function App() {
   return <>
@@ -23,10 +26,19 @@ export default function App() {
     <Route path='/' element={<Home/>} />
     <Route path='about' element={<About/>}/>
     <Route path='services' element={<Services/>}/>
-    <Route path='causes' element={<Causes/>}/>
-    <Route path='events' element={<Events/>}/>
+    <Route path='causes' >
+    <Route path='' element={<Causes/>}/>
+    <Route path=":slug" element={<CauseDetail />} />
+    </Route>
+    <Route path='events' >
+      <Route path='' element={<Events/>}/>
+    <Route path=":slug" element={<EventDetail />} />
+    </Route>
     <Route path='contact' element={<Contact/>}/>
-    <Route path='blog' element={<Blog/>}/>
+    <Route path='blog'>
+    <Route path='' element={<Blog/>}/>
+    <Route path=":slug" element={<BlogDetail />} />
+    </Route>
     <Route path='donation' element={<Donations/>}/>
     <Route path='404' element={<Error/>}/>
     <Route path='gallery' element={<Gallery/>}/>
