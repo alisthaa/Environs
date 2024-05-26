@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
-
-import service2 from '../assets/images/service-2.jpg'
-import donation1 from '../assets/images/donation-1.jpg'
-import donation3 from '../assets/images/donation-3.jpg'
 import BreadCrumb from '../components/common/BreadCrumb'
 
 export default function Donations() {

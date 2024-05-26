@@ -1,16 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { MdKeyboardArrowRight } from "react-icons/md";
-import gallery1 from '../../assets/images/gallery-footer-1.jpg'
-import gallery2 from '../../assets/images/gallery-footer-2.jpg'
-import gallery3 from '../../assets/images/gallery-footer-3.jpg'
-import gallery4 from '../../assets/images/gallery-footer-4.jpg'
-import gallery5 from '../../assets/images/gallery-footer-5.jpg'
-import gallery6 from '../../assets/images/gallery-footer-6.jpg'
 import { TbCircleLetterC } from "react-icons/tb";
 import { ImCross } from "react-icons/im";
 import { MdOutlineZoomIn } from "react-icons/md";
 import { FaFacebook, FaInstagram, FaLinkedin, FaPinterest, FaTwitter } from 'react-icons/fa6';
+import axios from 'axios';
 export default function Footer() {
+    const [data, setData] = useState([]);
+useEffect(() => {
+  axios
+    .get('http://localhost:3000/api/footer')
+    .then((res) => {
+      console.log(res.data);
+      setData(res.data);
+      
+    })
+    .catch(err=>{
+      console.log(err);   
+    });
+}, []);
     const handleSubmit = (e) => {
         e.preventDefault(); 
     };
@@ -21,26 +29,6 @@ export default function Footer() {
         });
     };
 
-    const data=[
-        {
-            image: gallery1
-        },
-        {
-            image: gallery2
-        },
-        {
-            image: gallery3
-        },
-        {
-            image: gallery4
-        },
-        {
-            image: gallery5
-        },
-        {
-            image: gallery6
-        },
-    ]
 
     const [selectedImage, setSelectedImage] = useState(null);
     const handleImageClick = (index) => {
@@ -100,7 +88,7 @@ export default function Footer() {
     data.map((el,index)=>(
 
     <div className='relative group overflow-hidden h-[90px] w-[90px] cursor-pointer '> 
-    <img key={index} src={el.image} alt="" className='w-full h-full transition-all ease-in-out duration-300 transform group-hover:scale-125 group-hover:brightness-50' />
+    <img key={index} src={`http://localhost:3000${el.image}`} alt="" className='w-full h-full transition-all ease-in-out duration-300 transform group-hover:scale-125 group-hover:brightness-50' />
     <MdOutlineZoomIn  onClick={() => handleImageClick(index)} className='absolute text-white  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300'/>
     </div>
 
@@ -111,7 +99,7 @@ export default function Footer() {
                 <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex flex-col justify-center items-center ">
                     <div className='relative'> 
                     <img
-                        src={data[selectedImage].image}
+                       src={`http://localhost:3000${data[selectedImage].image}`}
                         alt=""
                         className="max-w-full max-h-full p-2 bg-white"
                     />

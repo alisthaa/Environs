@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
-import blog1 from '../assets/images/blog-1.jpg'
-import blog2 from '../assets/images/blog-2.jpg'
-import blog3 from '../assets/images/blog-3.jpg'
-import blog4 from '../assets/images/blog-4.jpg'
 import { FaClock, FaComment, FaHeart } from 'react-icons/fa6'
 import { MdOutlineZoomIn } from "react-icons/md";
 import { ImCross } from "react-icons/im";
@@ -75,7 +71,7 @@ export default function Blog() {
 <p className='text-2xl font-Jost mb-4 font-semibold'>Save The Topic Forests</p>
 <p className='font-Roboto mb-6  text-base'>Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor.</p>
 <Link to={`/blog/${el._id}`}>
-  <button className='btn'>Read More</button>
+  <button onClick={scrollToTop} className='btn'>Read More</button>
   </Link> 
 </div>
 </div>

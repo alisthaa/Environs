@@ -1,35 +1,9 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
 import Banner from '../components/home/Banner'
 import about from '../assets/images/about-1.jpg'
 import volunteersbg from '../assets/images/volunteers-bg.jpg'
-import volunteer1 from '../assets/images/volunteers-1.jpg'
-import volunteer2 from '../assets/images/volunteers-2.jpg'
-import volunteer3 from '../assets/images/volunteers-3.jpg'
-import volunteer4 from '../assets/images/volunteers-4.jpg'
-import service1 from '../assets/images/service-1.jpg'
-import service2 from '../assets/images/service-2.jpg'
-import service3 from '../assets/images/service-3.jpg'
-import service4 from '../assets/images/service-4.jpg'
-import donation1 from '../assets/images/donation-1.jpg'
-import donation3 from '../assets/images/donation-3.jpg'
-import cause1 from '../assets/images/causes-1.jpg'
-import cause2 from '../assets/images/causes-2.jpg'
-import cause3 from '../assets/images/causes-3.jpg'
-import cause4 from '../assets/images/causes-4.jpg'
-import event1 from '../assets/images/events-1.jpg'
-import event2 from '../assets/images/events-2.jpg'
-import event3 from '../assets/images/events-3.jpg'
-import event4 from '../assets/images/events-4.jpg'
-import blog1 from '../assets/images/blog-1.jpg'
-import blog2 from '../assets/images/blog-2.jpg'
-import blog3 from '../assets/images/blog-3.jpg'
-import blog4 from '../assets/images/blog-4.jpg'
-import gallery1 from '../assets/images/gallery-1.jpg'
-import gallery2 from '../assets/images/gallery-2.jpg'
-import gallery3 from '../assets/images/gallery-3.jpg'
-import gallery4 from '../assets/images/gallery-4.jpg'
-import gallery5 from '../assets/images/gallery-5.jpg'
 import Slider from 'react-slick'
 import { FaArrowLeft, FaArrowRight, FaLocationDot } from 'react-icons/fa6'
 import { SlCalender } from "react-icons/sl";
@@ -43,23 +17,110 @@ import { VscGraph } from "react-icons/vsc";
 import { FaClock, FaComment,  } from 'react-icons/fa6'
 import { MdOutlineZoomIn } from "react-icons/md";
 import { ImCross } from "react-icons/im";
-import Services from './Services';
-import Donations from './Donations';
-import Causes from './Causes';
-import Events from './Events';
-import Blog from './Blog';
-import About from './About';
-import Gallery from './Gallery'
-import Volunteers from './Volunteers';
 import CounterItem from './CounterItem';
 import ProgressBar from './ProgressBar';
+import { Link } from 'react-router-dom';
 export default function Home() {
+  const [data1, setData1] = useState([]); 
+  useEffect(() => {
+    axios
+      .get('http://localhost:3000/api/services')
+      .then((res) => {
+        console.log(res.data);
+        setData1(res.data);
+       
+      })
+      .catch(err=>{
+        console.log(err);   
+      });
+  }, []);
+  const [data2, setData2] = useState([]);
+  useEffect(() => {
+    axios
+      .get('http://localhost:3000/api/donations')
+      .then((res) => {
+        console.log(res.data);
+        setData2(res.data);
+       
+      })
+      .catch(err=>{
+        console.log(err);   
+      });
+  }, []);
+  const [data3, setData3] = useState([]);
+  useEffect(() => {
+    axios
+      .get('http://localhost:3000/api/causes')
+      .then((res) => {
+        console.log(res.data);
+        setData3(res.data);
+        
+      })
+      .catch(err=>{
+        console.log(err);   
+      });
+  }, []);
+  const [data4, setData4] = useState([]);
+  
+  useEffect(() => {
+    axios
+      .get('http://localhost:3000/api/events')
+      .then((res) => {
+        console.log(res.data);
+        setData4(res.data);
+      
+      })
+      .catch(err=>{
+        console.log(err);   
+      });
+  }, []);
+  const [data5, setData5] = useState([]);
+  useEffect(() => {
+    axios
+      .get('http://localhost:3000/api/blogs')
+      .then((res) => {
+        console.log(res.data);
+        setData5(res.data);
+        
+      })
+      .catch(err=>{
+        console.log(err);   
+      });
+  }, []);
+  const [data6, setData6] = useState([]);
+useEffect(() => {
+  axios
+    .get('http://localhost:3000/api/volunteer')
+    .then((res) => {
+      console.log(res.data);
+      setData6(res.data);
+      
+    })
+    .catch(err=>{
+      console.log(err);   
+    });
+}, []);
+const [data, setData] = useState([]);
+useEffect(() => {
+  axios
+    .get('http://localhost:3000/api/gallery')
+    .then((res) => {
+      console.log(res.data);
+      setData(res.data);
+      
+    })
+    .catch(err=>{
+      console.log(err);   
+    });
+}, []);
+
   const scrollToTop = () => {
     window.scrollTo({
         top: 0,
         behavior: "smooth" // Scroll smoothly to top
     });
 };
+
 const [activeButton, setActiveButton] = useState(1);
 const [buttonContent, setButtonContent] = useState({
   1: " 1",
@@ -78,111 +139,13 @@ const [buttonContent, setButtonContent] = useState({
         setSelectedImage(null);
     };
     const [selectedImageG, setSelectedImageG] = useState(null);
-    const handleImageClickG = (imageSrc) => {
-        setSelectedImageG(imageSrc);
+    const handleImageClickG = (index) => {
+        setSelectedImageG(index);
     };
 
     const handleCloseModalG = () => {
         setSelectedImageG(null);
     };
-    
-    const data1 = [
-      {
-       image: service1,
-       p: "Raising money to help"
-      },
-      {
-       image: service2,
-       p: "Close work with services"
-      },
-      {
-       image: service3,
-       p: "Pro Guided Tours Only"
-      },
-      {
-       image: service4,
-       p: "Protecting animal area"
-      },
-    ]
-    const data2 =[
-      {
-        image: donation1,
-        p:"ORGANIC"
-      },
-      {
-        image: service2,
-        p:"ECOSYSTEM"
-      },
-      {
-        image: donation3,
-        p:"RECYCLING"
-      },
-     
-    ]
-    const data3=[
-      {
-        image: cause4,
-        p: "First environments activity of",
-        percentage: 65,
-      },
-      {
-        image: cause2,
-        p: "Build school for poor children.",
-        percentage: 75,
-      },
-      {
-        image: cause3,
-        p: "Building clean-water system for rural poor.",
-        percentage: 85,
-      },
-      {
-        image: cause1,
-        p: "First environments activity of this summer.",
-        percentage: 95,
-      },
-    ]
-    const data4 =[
-      {
-        image: event2,
-      },
-      {
-        image: event3,
-      },
-      {
-        image: event4,
-      },
-      {
-        image: event1,
-      },
-    ]
-    const data5=[
-      {
-        image: blog1,
-      },
-      {
-        image: blog2,
-      },
-      {
-        image: blog3,
-      },
-      {
-        image: blog4,
-      },
-    ]
-    const data6=[
-      {
-        image: volunteer1,
-      },
-      {
-        image: volunteer3,
-      },
-      {
-        image: volunteer2,
-      },
-      {
-        image: volunteer4,
-      },
-    ]
     function SampleNextArrow(props) {
       const { className, style, onClick } = props;
       return (
@@ -312,7 +275,7 @@ const [buttonContent, setButtonContent] = useState({
   data1.map(el=>(
 <div className='relative flex flex-col px-3 mt-6 overflow-hidden group '>
     <div className=' w-[306px] h-[367px] overflow-hidden'>
-    <img src={el.image} className='   brightness-75 ease-in-out  transform group-hover:scale-125 group-hover:brightness-50 transition-all duration-500'/>
+    <img src={`http://localhost:3000${el.image}`} className='   brightness-75 ease-in-out  transform group-hover:scale-125 group-hover:brightness-50 transition-all duration-500'/>
     </div>
     <div> 
     <p className=' absolute bottom-36 mx-auto text-2xl font-Jost font-semibold  text-white p-2 hover:text-primary cursor cursor-pointer'>{el.p}</p>
@@ -350,7 +313,7 @@ const [buttonContent, setButtonContent] = useState({
 
 <div key={index} className='donation-item group h-full w-auto md:h-[500px] md:w-[415px] relative '> 
     <div className='realtive'> 
-     <img src={el.image} alt="" className='w-full h-full object-cover'/>   
+     <img src={`http://localhost:3000${el.image}`} alt="" className='w-full h-full object-cover'/>   
 
      </div>
      <div className='text-white donation-content flex flex-col '> 
@@ -415,7 +378,7 @@ const [buttonContent, setButtonContent] = useState({
   data3.map(el=>(
 <div className='w-[306px] '>
 <div className='relative bg-[#757575]'>
-  <img src={el.image} className='h-full transform transition duration-500 hover:scale-x-[-1] hover:brightness-50' />
+  <img src={`http://localhost:3000${el.image}`} className='h-full transform transition duration-500 hover:scale-x-[-1] hover:brightness-50' />
    <div className='absolute top-0 right-0 p-2'>
     <button onClick={scrollToTop} className='btn'>Donate Now</button>
    </div>
@@ -427,7 +390,9 @@ const [buttonContent, setButtonContent] = useState({
 <div className='bg-secondary  p-6 border-b-[3px] border-x-[3px] border-white border-dotted'>
   <p className='text-2xl font-Jost mb-4 font-semibold'>{el.p}</p>
   <p className='text-base font-Roboto mb-6 text-[#757575]'>Help today because tomorrow you may be the one who needs more helping!</p>
+  <Link to={`/causes/${el._id}`}>
   <button onClick={scrollToTop} className='btn'>Read More</button>
+  </Link> 
 </div>
 
 </div>
@@ -460,7 +425,7 @@ const [buttonContent, setButtonContent] = useState({
   data4.map(el=>(
 <div className='w-[415px] px-3 relative'>
   <div className=' h-[332px]'>  
-    <img src={el.image} alt="" className='' />
+    <img src={`http://localhost:3000${el.image}`} alt="" className='' />
     </div>
     <div className='bg-secondary p-6 border-b-[3px] border-x-[3px] border-white border-dotted'>
       <div className='flex justify-between mb-6 text-grey font-Roboto text-base'> 
@@ -469,7 +434,9 @@ const [buttonContent, setButtonContent] = useState({
       </div>
       <p className='font-Jost text-[24px] mb-6 font-semibold'>How To Build A Cleaning Plan</p>
       <p className='font-Roboto mb-6 text-grey text-base'>Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor.</p>
-      <button onClick={scrollToTop} className='btn'>Read More</button>
+      <Link to={`/events/${el._id}`}>
+  <button onClick={scrollToTop} className='btn'>Read More</button>
+  </Link> 
     </div>
    </div>
 
@@ -497,9 +464,9 @@ const [buttonContent, setButtonContent] = useState({
     <div className='flex flex-wrap justify-center gap-6 '> 
 {
   data5.map((el,index)=>(
-<div className='w-[306px] border'>
+<div key={el._id} className='w-[306px] border'>
   <div className='group overflow-hidden relative'>
-<img key={index} src={el.image} alt="" className=' brightness-75 transition-all ease-in-out  transform group-hover:scale-125 group-hover:brightness-50 duration-500'/>
+<img  src={`http://localhost:3000${el.image}`} alt="" className=' brightness-75 transition-all ease-in-out  transform group-hover:scale-125 group-hover:brightness-50 duration-500'/>
 
 <div className='absolute text-white flex gap-20 bottom-0 p-5'> 
   <p className='flex flex-wrap justify-center items-center gap-2'><FaClock/> Dec 1.2024</p> 
@@ -515,7 +482,9 @@ const [buttonContent, setButtonContent] = useState({
 <div className='p-6 '> 
 <p className='text-2xl font-Jost mb-4 font-semibold'>Save The Topic Forests</p>
 <p className='font-Roboto mb-6  text-base'>Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor.</p>
-<button onClick={scrollToTop} className='btn'>Read More</button>
+<Link to={`/blog/${el._id}`}>
+  <button onClick={scrollToTop} className='btn'>Read More</button>
+  </Link> 
 </div>
 </div>
  ))
@@ -524,7 +493,7 @@ const [buttonContent, setButtonContent] = useState({
                 <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex flex-col justify-center items-center ">
                     <div className='relative'> 
                     <img
-                        src={data5[selectedImage].image}
+                         src= {`http://localhost:3000${data5[selectedImage].image}`}
                         alt=""
                         className="max-w-full max-h-full p-2 bg-white"
                     />
@@ -558,7 +527,9 @@ const [buttonContent, setButtonContent] = useState({
 <div className="w-full">
 
   <div className='relative group overflow-hidden z-[1px]'> 
-  <img src={gallery2} alt="" className='w-full transition-all duration-500 group-hover:transform group-hover:scale-110'/>
+  {data.length > 0 && (
+  <img src={`http://localhost:3000${data[0].image}`} alt="" className='w-full transition-all duration-500 group-hover:transform group-hover:scale-110'/>
+)}
   <div className='absolute w-full h-0 bottom-0 left-0 bg-primary bg-opacity-40 text-center flex flex-col justify-end transition-all duration-500 z-20 group-hover:h-[100%]'>
   <div className='text-white transition-all duration-500  bg-opacity-10 pt-10 p-16 flex flex-col items-center justify-center group-hover:bg-primary'> 
   <p className='text-2xl font-Jost font-semibold'>Beauty Of Life</p>
@@ -566,7 +537,7 @@ const [buttonContent, setButtonContent] = useState({
   </div>
   </div>
   <div className=' cursor-pointer bg-white p-3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-n20 opacity-0 transition-all duration-500 z-30 group-hover:opacity-100'>
-<MdOutlineZoomIn onClick={() => handleImageClickG(gallery2)} className=' text-2xl text-primary hover:text-hover transition-all duration-300'/>
+<MdOutlineZoomIn onClick={() => handleImageClickG(0)} className=' text-2xl text-primary hover:text-hover transition-all duration-300'/>
 </div>
   </div>
  
@@ -574,7 +545,9 @@ const [buttonContent, setButtonContent] = useState({
 
 
   <div className='relative group overflow-hidden z-[1px]'> 
-  <img src={gallery3} alt="" className='w-full  transition-all duration-500 group-hover:transform group-hover:scale-110'/>
+  {data.length > 0 && (
+  <img src={`http://localhost:3000${data[1].image}`} alt="" className='w-full transition-all duration-500 group-hover:transform group-hover:scale-110'/>
+)}
   <div className='absolute w-full h-0 bottom-0 left-0 bg-primary bg-opacity-40 text-center flex flex-col justify-end transition-all duration-500 z-20 group-hover:h-[100%]'>
   <div className='text-white transition-all duration-500  bg-opacity-10 pt-10 p-16 flex flex-col items-center justify-center group-hover:bg-primary'> 
   <p className='text-2xl font-Jost font-semibold'>Beauty Of Life</p>
@@ -582,7 +555,7 @@ const [buttonContent, setButtonContent] = useState({
   </div>
   </div>
   <div className='cursor-pointer bg-white p-3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-n20 opacity-0 transition-all duration-500 z-30 group-hover:opacity-100'>
-<MdOutlineZoomIn onClick={() => handleImageClickG(gallery2)} className=' text-2xl text-primary hover:text-hover transition-all duration-300'/>
+<MdOutlineZoomIn onClick={() => handleImageClickG(1)} className=' text-2xl text-primary hover:text-hover transition-all duration-300'/>
 </div>
   </div>
 
@@ -596,7 +569,9 @@ const [buttonContent, setButtonContent] = useState({
 
 <div className="w-full">
 <div className='relative group overflow-hidden z-[1px]'> 
-  <img src={gallery1} alt="" className='w-full transition-all duration-500 group-hover:transform group-hover:scale-110'/>
+{data.length > 0 && (
+  <img src={`http://localhost:3000${data[2].image}`} alt="" className='w-full transition-all duration-500 group-hover:transform group-hover:scale-110'/>
+)}
   <div className='absolute w-full h-0 bottom-0 left-0 bg-primary bg-opacity-40 text-center flex flex-col justify-end transition-all duration-500 z-20 group-hover:h-[100%]'>
   <div className='text-white transition-all duration-500  bg-opacity-10 pt-10 p-16 flex flex-col items-center justify-center group-hover:bg-primary'> 
   <p className='text-2xl font-Jost font-semibold'>Beauty Of Life</p>
@@ -604,7 +579,7 @@ const [buttonContent, setButtonContent] = useState({
   </div>
   </div>
   <div className='cursor-pointer bg-white p-3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-n20 opacity-0 transition-all duration-500 z-30 group-hover:opacity-100'>
-<MdOutlineZoomIn onClick={() => handleImageClickG(gallery2)} className=' text-2xl text-primary hover:text-hover transition-all duration-300'/>
+<MdOutlineZoomIn onClick={() => handleImageClickG(2)} className=' text-2xl text-primary hover:text-hover transition-all duration-300'/>
 </div>
   </div>
 </div>
@@ -613,7 +588,9 @@ const [buttonContent, setButtonContent] = useState({
 
 
 <div className='relative group overflow-hidden z-[1px]'> 
-  <img src={gallery4} alt="" className='w-full transition-all duration-500 group-hover:transform group-hover:scale-110'/>
+{data.length > 0 && (
+  <img src={`http://localhost:3000${data[3].image}`} alt="" className='w-full transition-all duration-500 group-hover:transform group-hover:scale-110'/>
+)}
   <div className='absolute w-full h-0 bottom-0 left-0 bg-primary bg-opacity-40 text-center flex flex-col justify-end transition-all duration-500 z-20 group-hover:h-[100%]'>
   <div className='text-white transition-all duration-500  bg-opacity-10 pt-10 p-16 flex flex-col items-center justify-center group-hover:bg-primary'> 
   <p className='text-2xl font-Jost font-semibold'>Beauty Of Life</p>
@@ -621,13 +598,15 @@ const [buttonContent, setButtonContent] = useState({
   </div>
   </div>
   <div className='cursor-pointer bg-white p-3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-n20 opacity-0 transition-all duration-500 z-30 group-hover:opacity-100'>
-<MdOutlineZoomIn onClick={() => handleImageClickG(gallery2)} className=' text-2xl text-primary hover:text-hover transition-all duration-300'/>
+<MdOutlineZoomIn onClick={() => handleImageClickG(3)} className=' text-2xl text-primary hover:text-hover transition-all duration-300'/>
 </div>
   </div>
 
 
   <div className='relative group overflow-hidden z-[1px]'> 
-  <img src={gallery5} alt="" className='w-full transition-all duration-500 group-hover:transform group-hover:scale-110'/>
+  {data.length > 0 && (
+  <img src={`http://localhost:3000${data[4].image}`} alt="" className='w-full transition-all duration-500 group-hover:transform group-hover:scale-110'/>
+)}
   <div className='absolute w-full h-0 bottom-0 left-0 bg-primary bg-opacity-40 text-center flex flex-col justify-end transition-all duration-500 z-20 group-hover:h-[100%]'>
   <div className='text-white transition-all duration-500  bg-opacity-10 pt-10 p-16 flex flex-col items-center justify-center group-hover:bg-primary'> 
   <p className='text-2xl font-Jost font-semibold'>Beauty Of Life</p>
@@ -635,7 +614,7 @@ const [buttonContent, setButtonContent] = useState({
   </div>
   </div>
   <div className='cursor-pointer bg-white p-3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-n20 opacity-0 transition-all duration-500 z-30 group-hover:opacity-100'>
-<MdOutlineZoomIn onClick={() => handleImageClickG(gallery2)} className=' text-2xl text-primary hover:text-hover transition-all duration-300'/>
+<MdOutlineZoomIn onClick={() => handleImageClickG(4)} className=' text-2xl text-primary hover:text-hover transition-all duration-300'/>
 </div>
   </div>
 
@@ -649,7 +628,7 @@ const [buttonContent, setButtonContent] = useState({
                 <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex flex-col justify-center items-center ">
                     <div className='relative'> 
                     <img
-                        src={selectedImageG}
+                         src={`http://localhost:3000${data[selectedImageG].image}`}
                         alt=""
                         className="max-w-full max-h-full p-2 bg-white"
                     />
@@ -683,7 +662,7 @@ const [buttonContent, setButtonContent] = useState({
   data6.map((el,index)=>(
 
 <div className='relative w-full group overflow-hidden'>
-  <img src={el.image} alt="" className=' w-full h-full brightness-90  transition-all duration-500 transform group-hover:scale-125 group-hover:brightness-50' />
+  <img src={`http://localhost:3000${el.image}`} alt="" className=' w-full h-full brightness-90  transition-all duration-500 transform group-hover:scale-125 group-hover:brightness-50' />
   <div className='absolute bottom-0 text-white text-center p-5 left-14'>
   <p className='text-[20px] font-Jost mb-2 font-semibold'>Michel Brown</p>
   <p className='font-Roboto'>Communicator</p>

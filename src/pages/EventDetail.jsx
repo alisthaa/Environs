@@ -25,7 +25,7 @@ export default function EventDetail() {
       <p className='font-Jost text-xl text-primary  font-semibold mb-2'>UPCOMING EVENTS</p>
       
     </div>
-  <div className='flex justify-center gap-6 mt-5 shadow-lg shadow-primary'>
+  <div className='flex flex-wrap md:flex-nowrap p-2 justify-center gap-6 mt-5 shadow-lg shadow-primary'>
       <img src={`http://localhost:3000${event.image}`} className='shadow-md shadow-black h-96 m-3'/>
       <div> 
       <p className='text-3xl text-primary font-Jost mb-4 font-semibold'>How to building a cleaning plan.</p>

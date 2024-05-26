@@ -27,7 +27,7 @@ export default function CauseDetail() {
     <p className='font-Jost text-[30px] md:text-[40px]  font-semibold mb-6'>The environment needs our protection</p>
    
   </div>
-<div className='flex justify-center gap-6 mt-5 shadow-lg shadow-primary'>
+<div className='flex flex-wrap md:flex-nowrap p-2 justify-center gap-6 mt-5 shadow-lg shadow-primary'>
     <img src={`http://localhost:3000${cause.image}`} className='shadow-md shadow-black h-96 m-3'/>
     <div> 
     <p className='text-3xl text-primary font-Jost mb-4 font-semibold'>{cause.p}</p>

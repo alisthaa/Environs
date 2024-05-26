@@ -1,9 +1,4 @@
 import React, { useState,useEffect } from 'react'
-import gallery1 from '../assets/images/gallery-1.jpg'
-import gallery2 from '../assets/images/gallery-2.jpg'
-import gallery3 from '../assets/images/gallery-3.jpg'
-import gallery4 from '../assets/images/gallery-4.jpg'
-import gallery5 from '../assets/images/gallery-5.jpg'
 import { MdOutlineZoomIn } from "react-icons/md";
 import { ImCross } from 'react-icons/im';
 import BreadCrumb from '../components/common/BreadCrumb'

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import about from '../assets/images/about-1.jpg'
 import BreadCrumb from '../components/common/BreadCrumb';
 import volunteer1 from '../assets/images/volunteers-1.jpg'
@@ -6,7 +6,21 @@ import volunteer2 from '../assets/images/volunteers-2.jpg'
 import volunteer3 from '../assets/images/volunteers-3.jpg'
 import volunteer4 from '../assets/images/volunteers-4.jpg'
 import { FaCheck } from 'react-icons/fa6'
+import axios from 'axios';
 export default function About() {
+  const [data, setData] = useState([]);
+useEffect(() => {
+  axios
+    .get('http://localhost:3000/api/volunteer')
+    .then((res) => {
+      console.log(res.data);
+      setData(res.data);
+      
+    })
+    .catch(err=>{
+      console.log(err);   
+    });
+}, []);
   const scrollToTop = () => {
     window.scrollTo({
         top: 0,
@@ -22,20 +36,6 @@ const [buttonContent, setButtonContent] = useState({
     const handleButtonClick = (buttonId) => {
         setActiveButton(buttonId);
     };
-    const data=[
-      {
-        image: volunteer1,
-      },
-      {
-        image: volunteer3,
-      },
-      {
-        image: volunteer2,
-      },
-      {
-        image: volunteer4,
-      },
-    ]
     
   return <> 
   <BreadCrumb topic={'About Us'} page={'About Us'}/>
@@ -77,7 +77,7 @@ const [buttonContent, setButtonContent] = useState({
   data.map(el=>(
 
 <div className='relative w-full group overflow-hidden'>
-  <img src={el.image} alt="" className=' w-full h-full brightness-90  transition-all duration-500 transform group-hover:scale-125 group-hover:brightness-50' />
+  <img src={`http://localhost:3000${el.image}`} alt="" className=' w-full h-full brightness-90  transition-all duration-500 transform group-hover:scale-125 group-hover:brightness-50' />
   <div className='absolute bottom-0 text-white text-center p-5 left-14'>
   <p className='text-[20px] font-Jost mb-2 font-semibold'>Michel Brown</p>
   <p className='font-Roboto'>Communicator</p>

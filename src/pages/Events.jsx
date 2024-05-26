@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
-import event1 from '../assets/images/events-1.jpg'
-import event2 from '../assets/images/events-2.jpg'
-import event3 from '../assets/images/events-3.jpg'
-import event4 from '../assets/images/events-4.jpg'
 import Slider from 'react-slick'
 import { FaArrowLeft, FaArrowRight, FaLocationDot } from 'react-icons/fa6'
 import { SlCalender } from "react-icons/sl";
@@ -143,7 +139,7 @@ if (loading) {
       <p className='font-Jost text-[24px] mb-6 font-semibold'>How To Build A Cleaning Plan</p>
       <p className='font-Roboto mb-6 text-grey text-base'>Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor.</p>
       <Link to={`/events/${el._id}`}>
-  <button className='btn'>Read More</button>
+  <button onClick={scrollToTop} className='btn'>Read More</button>
   </Link> 
     </div>
    </div>

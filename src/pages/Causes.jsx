@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
-import cause1 from '../assets/images/causes-1.jpg'
-import cause2 from '../assets/images/causes-2.jpg'
-import cause3 from '../assets/images/causes-3.jpg'
-import cause4 from '../assets/images/causes-4.jpg'
 import { VscGraph } from "react-icons/vsc";
 import { FaThumbsUp } from 'react-icons/fa'
 import BreadCrumb from '../components/common/BreadCrumb'
@@ -62,7 +58,7 @@ if (loading) {
   <p className='text-2xl font-Jost mb-4 font-semibold'>{el.p}</p>
   <p className='text-base font-Roboto mb-6 text-[#757575]'>Help today because tomorrow you may be the one who needs more helping!</p>
   <Link to={`/causes/${el._id}`}>
-  <button className='btn'>Read More</button>
+  <button onClick={scrollToTop} className='btn'>Read More</button>
   </Link> 
 </div>
 

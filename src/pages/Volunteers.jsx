@@ -1,9 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import volunteer1 from '../assets/images/volunteers-1.jpg'
-import volunteer2 from '../assets/images/volunteers-2.jpg'
-import volunteer3 from '../assets/images/volunteers-3.jpg'
-import volunteer4 from '../assets/images/volunteers-4.jpg'
-import { TiTick } from "react-icons/ti";
 import { FaCheck } from 'react-icons/fa6'
 import BreadCrumb from '../components/common/BreadCrumb'
 import axios from 'axios'
